@@ -1,93 +1,574 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brawl Stars - Tsuki</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Oliver Tree - Helicopter Jump</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  background:#111;
+  touch-action:none;
+}
+#game{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  background:
+    linear-gradient(#d77b9b 0%,#e9a7ba 48%,#6ba5d1 48%,#3975a5 100%);
+}
 
-        .container {
-            text-align: center;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-        }
+/* CÉU */
+.cloud{
+  position:absolute;
+  width:110px;
+  height:35px;
+  border-radius:30px;
+  background:#fff8;
+  animation:cloud 12s linear infinite;
+}
+.cloud:before,.cloud:after{
+  content:"";
+  position:absolute;
+  background:#fff8;
+  border-radius:50%;
+}
+.cloud:before{width:45px;height:45px;left:20px;top:-20px}
+.cloud:after{width:55px;height:55px;right:15px;top:-27px}
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+@keyframes cloud{
+  from{transform:translateX(110vw)}
+  to{transform:translateX(-180px)}
+}
 
-        .emoji {
-            font-size: 4em;
-            margin: 20px 0;
-        }
+/* PERSONAGEM */
+#player{
+  position:absolute;
+  left:70px;
+  top:50%;
+  width:95px;
+  height:130px;
+  object-fit:contain;
+  object-position:center;
+  border-radius:15px;
+  z-index:10;
+  user-select:none;
+  pointer-events:none;
+  transform:translateY(-50%);
+  filter:drop-shadow(0 7px 4px #0007);
+}
 
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
+/* HELICÓPTERO */
+.heli{
+  position:absolute;
+  right:-150px;
+  width:125px;
+  height:65px;
+  z-index:9;
+  animation:heli linear forwards;
+}
+.body{
+  position:absolute;
+  left:20px;
+  top:22px;
+  width:80px;
+  height:38px;
+  border-radius:20px 25px 12px 12px;
+  background:#313943;
+  border:4px solid #15191d;
+}
+.window{
+  position:absolute;
+  left:31px;
+  top:28px;
+  width:30px;
+  height:20px;
+  border-radius:8px 15px 4px 4px;
+  background:#79b9d9;
+  border:3px solid #161a1e;
+}
+.tail{
+  position:absolute;
+  left:88px;
+  top:33px;
+  width:38px;
+  height:7px;
+  background:#252b31;
+}
+.tail2{
+  position:absolute;
+  left:119px;
+  top:22px;
+  width:7px;
+  height:28px;
+  background:#252b31;
+}
+.rotor{
+  position:absolute;
+  left:28px;
+  top:10px;
+  width:85px;
+  height:5px;
+  border-radius:5px;
+  background:#171a1d;
+  animation:spin .15s linear infinite;
+}
+.rotor:after{
+  content:"";
+  position:absolute;
+  left:40px;
+  top:-5px;
+  width:5px;
+  height:15px;
+  background:#171a1d;
+}
+@keyframes spin{
+  to{transform:rotate(180deg)}
+}
+@keyframes heli{
+  from{right:-150px}
+  to{right:110vw}
+}
 
-        .button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid white;
-            margin: 10px;
-            cursor: pointer;
-        }
+/* HUD */
+#score{
+  position:absolute;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:30;
+  padding:9px 18px;
+  border-radius:20px;
+  background:#0009;
+  color:white;
+  font-size:22px;
+  font-weight:bold;
+}
+#best{
+  position:absolute;
+  top:62px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:30;
+  color:#fff;
+  font-size:13px;
+}
 
-        .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
+/* BOTÃO */
+#start{
+  position:absolute;
+  z-index:50;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  padding:18px 30px;
+  border:0;
+  border-radius:18px;
+  background:#ef4054;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+  box-shadow:0 7px 0 #9e2331;
+}
+#start:active{
+  transform:translate(-50%,-45%);
+  box-shadow:0 3px 0 #9e2331;
+}
 
-        .info {
-            margin-top: 40px;
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-    </style>
+#hint{
+  position:absolute;
+  z-index:40;
+  bottom:25px;
+  width:100%;
+  text-align:center;
+  color:white;
+  font-weight:bold;
+  text-shadow:0 2px 3px #000;
+}
+
+/* GAME OVER */
+#gameover{
+  display:none;
+  position:absolute;
+  inset:0;
+  z-index:60;
+  background:#000b;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.card{
+  width:min(330px,90%);
+  padding:28px;
+  border-radius:25px;
+  background:#20252c;
+  color:white;
+}
+.card h1{
+  font-size:35px;
+  margin-bottom:10px;
+}
+.card p{
+  margin:8px;
+  color:#ddd;
+}
+#again{
+  margin-top:15px;
+  padding:14px 25px;
+  border:0;
+  border-radius:14px;
+  background:#ef4054;
+  color:white;
+  font-weight:bold;
+  font-size:17px;
+}
+
+.flash{
+  animation:flash .2s;
+}
+@keyframes flash{
+  50%{filter:brightness(2)}
+}
+</style>
 </head>
-<body>
-    <div class="container">
-        <div class="emoji">⚔️</div>
-        <h1>Bem-vindo ao Brawl Stars!</h1>
-        <p>Site oficial do projeto Brawl Tsuki 🎮</p>
-        
-        <button class="button" id="playBtn">Jogar Agora</button>
-        <a href="https://github.com/thalysontsuki/Brawl-tsuki" class="button">Ver Código</a>
 
-        <div class="info">
-            <p>🌟 Criado por Thalyson Tsuki</p>
-            <p>Site feito com ❤️ e GitHub Pages</p>
-        </div>
+<body>
+
+<div id="game">
+
+  <div class="cloud" style="top:12%;animation-delay:-2s"></div>
+  <div class="cloud" style="top:28%;animation-delay:-7s"></div>
+  <div class="cloud" style="top:8%;width:80px;animation-delay:-10s"></div>
+
+  <div id="score">0</div>
+  <div id="best">Recorde: 0</div>
+
+  <!-- COLOQUE oliver.webp NO MESMO LOCAL DESTE HTML -->
+  <img id="player" src="oliver.webp" alt="Oliver Tree">
+
+  <button id="start">COMEÇAR 🚁</button>
+
+  <div id="hint">
+    TOQUE NA TELA PARA PULAR
+  </div>
+
+  <div id="gameover">
+    <div class="card">
+      <h1>💥 BATEU!</h1>
+      <p>Pontuação: <b id="finalScore">0</b></p>
+      <p>Recorde: <b id="finalBest">0</b></p>
+      <button id="again">JOGAR NOVAMENTE</button>
     </div>
-    <script src="script.js"></script>
+  </div>
+
+</div>
+
+<script>
+/* =========================
+   CONFIGURAÇÃO
+========================= */
+
+const player=document.getElementById("player");
+const game=document.getElementById("game");
+const start=document.getElementById("start");
+const gameover=document.getElementById("gameover");
+const again=document.getElementById("again");
+const scoreText=document.getElementById("score");
+const bestText=document.getElementById("best");
+const finalScore=document.getElementById("finalScore");
+const finalBest=document.getElementById("finalBest");
+
+let running=false;
+let score=0;
+let best=Number(localStorage.getItem("oliverBest")||0);
+
+let y=0;
+let velocity=0;
+
+let gravity=0.55;
+let jump=-10;
+
+let helicopters=[];
+let spawnTimer=0;
+let lastTime=0;
+
+/* =========================
+   RECORDE
+========================= */
+
+bestText.textContent="Recorde: "+best;
+
+/* =========================
+   INICIAR
+========================= */
+
+function startGame(){
+
+  running=true;
+  score=0;
+  velocity=0;
+
+  y=game.clientHeight*0.5;
+
+  helicopters.forEach(h=>h.remove());
+  helicopters=[];
+
+  spawnTimer=0;
+
+  scoreText.textContent="0";
+
+  start.style.display="none";
+  gameover.style.display="none";
+
+  player.style.top=y+"px";
+
+  lastTime=performance.now();
+
+  requestAnimationFrame(loop);
+}
+
+/* =========================
+   PULO
+========================= */
+
+function jumpPlayer(){
+
+  if(!running)return;
+
+  velocity=jump;
+
+}
+
+/* =========================
+   CRIAR HELICÓPTERO
+========================= */
+
+function createHelicopter(){
+
+  const h=document.createElement("div");
+  h.className="heli";
+
+  const height=45+
+    Math.random()*(game.clientHeight-170);
+
+  h.style.top=height+"px";
+
+  const duration=
+    Math.max(1.6,2.7-score/80);
+
+  h.style.animationDuration=duration+"s";
+
+  h.innerHTML=`
+    <div class="rotor"></div>
+    <div class="body"></div>
+    <div class="window"></div>
+    <div class="tail"></div>
+    <div class="tail2"></div>
+  `;
+
+  game.appendChild(h);
+  helicopters.push(h);
+
+  setTimeout(()=>{
+
+    if(h.parentNode){
+      h.remove();
+    }
+
+    helicopters=
+      helicopters.filter(x=>x!==h);
+
+  },duration*1000+200);
+
+}
+
+/* =========================
+   COLISÃO
+========================= */
+
+function collision(a,b){
+
+  const ar=a.getBoundingClientRect();
+  const br=b.getBoundingClientRect();
+
+  const padding=15;
+
+  return !(
+    ar.right-padding<br.left ||
+    ar.left+padding>br.right ||
+    ar.bottom-padding<br.top ||
+    ar.top+padding>br.bottom
+  );
+
+}
+
+/* =========================
+   GAME OVER
+========================= */
+
+function endGame(){
+
+  running=false;
+
+  if(score>best){
+
+    best=score;
+
+    localStorage.setItem(
+      "oliverBest",
+      best
+    );
+
+  }
+
+  finalScore.textContent=score;
+  finalBest.textContent=best;
+
+  bestText.textContent=
+    "Recorde: "+best;
+
+  gameover.style.display="flex";
+
+  player.classList.add("flash");
+
+  setTimeout(()=>{
+    player.classList.remove("flash");
+  },250);
+
+}
+
+/* =========================
+   LOOP
+========================= */
+
+function loop(time){
+
+  if(!running)return;
+
+  const delta=Math.min(
+    (time-lastTime)/16.67,
+    2
+  );
+
+  lastTime=time;
+
+  velocity+=gravity*delta;
+  y+=velocity*delta;
+
+  const minY=70;
+  const maxY=game.clientHeight-70;
+
+  if(y<minY){
+    y=minY;
+    velocity=0;
+  }
+
+  if(y>maxY){
+
+    y=maxY;
+    endGame();
+    return;
+
+  }
+
+  player.style.top=y+"px";
+
+  spawnTimer+=delta;
+
+  const spawnEvery=
+    Math.max(42,82-score*0.35);
+
+  if(spawnTimer>spawnEvery){
+
+    spawnTimer=0;
+    createHelicopter();
+
+  }
+
+  helicopters.forEach(h=>{
+
+    if(collision(player,h)){
+
+      endGame();
+
+    }
+
+  });
+
+  score+=0.025*delta;
+
+  scoreText.textContent=
+    Math.floor(score);
+
+  requestAnimationFrame(loop);
+
+}
+
+/* =========================
+   CONTROLES
+========================= */
+
+game.addEventListener(
+  "pointerdown",
+  e=>{
+    if(
+      e.target===start ||
+      e.target===again
+    )return;
+
+    jumpPlayer();
+  }
+);
+
+start.addEventListener(
+  "click",
+  startGame
+);
+
+again.addEventListener(
+  "click",
+  startGame
+);
+
+/* Teclado também funciona */
+document.addEventListener(
+  "keydown",
+  e=>{
+    if(
+      e.code==="Space" ||
+      e.code==="ArrowUp"
+    ){
+      e.preventDefault();
+      jumpPlayer();
+    }
+  }
+);
+
+/* =========================
+   LOOP INICIAL
+========================= */
+
+player.style.top=
+  (game.clientHeight*0.5)+"px";
+
+window.addEventListener(
+  "resize",
+  ()=>{
+    if(!running){
+      y=game.clientHeight*0.5;
+      player.style.top=y+"px";
+    }
+  }
+);
+</script>
+
 </body>
 </html>
+```
