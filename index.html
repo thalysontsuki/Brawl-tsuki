@@ -4,43 +4,47 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Brawl Heart — Solução de Bem‑Estar</title>
-  <meta name="description" content="Brawl Heart: plataforma para promover bem-estar e qualidade de vida com ferramentas simples, científicas e de fácil adoção." />
-  <meta property="og:title" content="Brawl Heart — Solução de Bem‑Estar" />
-  <meta property="og:description" content="Ferramentas práticas para melhorar qualidade de vida pessoais e comunitárias. Ideal para escolas, empresas e projetos sociais." />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Brawl Heart: plataforma para promover bem-estar e qualidade de vida com ferramentas simples e comprovadas." />
+  <meta name="theme-color" content="#071026" />
   <style>
     :root{
-      --bg:#0f1720; --card:#0c1116; --accent:#1fb6ff; --accent-2:#8be56f;
+      --bg:#071026; --card:#0b1220; --accent:#1fb6ff; --accent-2:#8be56f;
       --muted:#9aa4b2; --text:#e6eef6; --radius:12px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071026 0%,var(--bg) 60%);color:var(--text);-webkit-font-smoothing:antialiased}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#02101a 0%,var(--bg) 60%);color:var(--text);-webkit-font-smoothing:antialiased}
     a{color:var(--accent);text-decoration:none}
-    header{max-width:1100px;margin:0 auto;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    header{max-width:1100px;margin:0 auto;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:#042230}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:#021018}
     nav{display:flex;gap:12px;align-items:center}
     nav a{color:var(--muted);padding:8px 12px;border-radius:8px;font-size:14px}
-    .cta-btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021018;padding:12px 16px;border-radius:10px;font-weight:700}
-    main{max-width:1100px;margin:0 auto;padding:24px}
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding-top:12px}
-    .hero h1{font-size:34px;margin:0 0 12px;line-height:1.05}
-    .hero p{margin:0 0 18px;color:var(--muted);font-size:16px}
+    .cta-btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021018;padding:10px 14px;border-radius:10px;font-weight:700}
+    main{max-width:1100px;margin:0 auto;padding:18px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding-top:6px}
+    .hero h1{font-size:30px;margin:0 0 12px;line-height:1.05}
+    .hero p{margin:0 0 16px;color:var(--muted);font-size:15px}
     .buttons{display:flex;gap:12px;flex-wrap:wrap}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:16px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
     .feature h3{margin:0 0 8px;font-size:16px}
     .feature p{color:var(--muted);margin:0;font-size:14px}
-    .steps{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .step{flex:1;min-width:220px}
-    .testimonials{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+    .flags{display:flex;gap:8px;overflow:auto;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);margin-top:18px}
+    .flag{font-size:22px;line-height:1}
     footer{max-width:1100px;margin:28px auto 40px;padding:20px;color:var(--muted);font-size:14px;text-align:center}
     .small{font-size:13px;color:var(--muted)}
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;padding:20px;z-index:60}
+    .modal{background:var(--card);padding:18px;border-radius:12px;max-width:880px;width:100%;color:var(--text)}
+    .modal-header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .modal-body{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+    .product-image{width:320px;height:200px;border-radius:10px;background:#06121a;display:flex;align-items:center;justify-content:center;color:var(--muted)}
     @media (max-width:920px){
       .hero{grid-template-columns:1fr; text-align:center}
       .features{grid-template-columns:1fr}
-      .testimonials{grid-template-columns:1fr}
       nav{display:none}
+      .modal-body{flex-direction:column;align-items:center}
+      .product-image{width:100%;height:180px}
     }
   </style>
 </head>
@@ -50,107 +54,94 @@
       <div class="logo" aria-hidden="true">BH</div>
       <div>
         <div style="font-weight:800">Brawl Heart</div>
-        <div class="small">Soluções simples para qualidade de vida</div>
+        <div class="small">Soluções práticas para qualidade de vida</div>
       </div>
     </div>
 
-    <nav aria-label="Navegação principal">
+    <nav aria-label="Navegação">
       <a href="#features">Recursos</a>
       <a href="#how">Como funciona</a>
-      <a href="#contact" class="cta-btn">Solicitar demo</a>
+      <a class="cta-btn" href="#contact">Solicitar demo</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div>
-        <h1 id="hero-title">Tecnologia humana para transformar bem‑estar em resultados</h1>
-        <p>O Brawl Heart ajuda escolas, ONGs e empresas a promover saúde mental, hábitos saudáveis e suporte comunitário usando ferramentas práticas, baseadas em evidências e fáceis de aplicar.</p>
+        <h1 id="hero-title">Tecnologia humana para transformar bem‑estar</h1>
+        <p>Brawl Heart fornece atividades, materiais e métricas para melhorar saúde mental, hábitos saudáveis e conexões comunitárias — pronto para aplicar em escolas, ONGs e empresas.</p>
 
         <div class="buttons" role="group" aria-label="Ações principais">
-          <a class="cta-btn" href="#contact">Solicitar demonstração</a>
-          <a class="card" href="#how">Ver como funciona</a>
+          <button class="cta-btn" id="demoBtn">▶️ Ver demonstração</button>
+          <a class="card" href="#how">✨ Como funciona</a>
+          <a class="card" href="mailto:seu-email@exemplo.com">📩 Contato</a>
         </div>
 
-        <div style="margin-top:22px" class="card">
-          <strong>Para quem serve</strong>
-          <div class="small" style="margin-top:8px;color:var(--muted)">
-            Escolas, projetos sociais, clínicas e empresas que buscam melhorar qualidade de vida com ações mensuráveis e material educacional pronto para uso.
+        <div style="margin-top:18px" class="card">
+          <strong>Resumo rápido</strong>
+          <p class="small" style="margin-top:8px;color:var(--muted)">
+            Plataforma leve com kits de atividades semanais, dashboard de impacto e material para mobilizar grupos em ações simples e mensuráveis.
+          </p>
+        </div>
+
+        <div style="margin-top:18px">
+          <strong>Disponível para</strong>
+          <div class="flags" id="flagsContainer" aria-hidden="false" title="Bandeiras (rolar)">
+            <!-- muitas bandeiras — geradas via JS -->
           </div>
+          <div class="small" style="margin-top:8px;color:var(--muted)">Cobertura global — clique em "Ver demonstração" para ver o produto.</div>
         </div>
       </div>
 
       <aside class="card" aria-hidden="false" style="text-align:center">
-        <!-- Placeholder visual — substitua pela imagem do produto -->
-        <div style="height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted)">
-          <div style="font-size:18px;font-weight:700">Brawl Heart</div>
-          <div class="small" style="margin-top:8px">Plataforma de bem‑estar • Dashboard • Ações práticas</div>
-          <div style="height:12px"></div>
-          <div style="width:220px;background:#071827;border-radius:8px;padding:10px;color:var(--muted)">Imagem do produto</div>
+        <!-- Imagem do produto: substitua "product.jpg" pelo arquivo real no repositório -->
+        <div class="product-image" id="heroImage">
+          <div>
+            <div style="font-weight:700">Imagem do produto</div>
+            <div class="small" style="margin-top:6px;color:var(--muted)">substitua por product.jpg</div>
+          </div>
         </div>
       </aside>
     </section>
 
-    <section id="features" style="margin-top:36px">
+    <section id="features" style="margin-top:28px">
       <h2 style="margin:0 0 12px">Recursos principais</h2>
       <div class="features" role="list">
         <div class="feature card" role="listitem">
-          <h3>Programas estruturados</h3>
-          <p>Guias passo a passo para implementar atividades de bem‑estar em turmas, grupos e equipes.</p>
+          <h3>Programas práticos</h3>
+          <p>Atividades curtas e fáceis de aplicar para promover bem‑estar no dia a dia.</p>
         </div>
         <div class="feature card" role="listitem">
           <h3>Dashboard de impacto</h3>
-          <p>Métricas intuitivas para acompanhar resultados e engajamento ao longo do tempo.</p>
+          <p>Métricas claras para acompanhar resultados e ajustar a ação.</p>
         </div>
         <div class="feature card" role="listitem">
-          <h3>Material acessível</h3>
-          <p>Conteúdo didático e adaptável (fichas, vídeos curtos e atividades práticas).</p>
+          <h3>Material pronto</h3>
+          <p>Fichas, vídeos e guias para educadores e líderes comunitários.</p>
         </div>
       </div>
     </section>
 
-    <section id="how" style="margin-top:36px">
+    <section id="how" style="margin-top:28px">
       <h2 style="margin:0 0 12px">Como funciona</h2>
-      <div class="steps">
-        <div class="step card">
-          <strong>1 • Diagnóstico rápido</strong>
-          <p class="small" style="margin-top:8px;color:var(--muted)">Avaliação simples para mapear necessidades e prioridades.</p>
-        </div>
-        <div class="step card">
-          <strong>2 • Plano prático</strong>
-          <p class="small" style="margin-top:8px;color:var(--muted)">Plano com atividades semanais, materiais e indicadores claros.</p>
-        </div>
-        <div class="step card">
-          <strong>3 • Medir & ajustar</strong>
-          <p class="small" style="margin-top:8px;color:var(--muted)">Resultados visíveis e recomendações para aprimorar a ação.</p>
-        </div>
+      <div class="card">
+        <ol style="margin:0 0 0 18px;color:var(--muted)">
+          <li>Diagnóstico rápido para mapear necessidades</li>
+          <li>Plano prático com atividades semanais</li>
+          <li>Medição e recomendações para melhoria contínua</li>
+        </ol>
       </div>
     </section>
 
-    <section id="testimonials" style="margin-top:36px">
-      <h2 style="margin:0 0 12px">Depoimentos</h2>
-      <div class="testimonials">
-        <div class="card">
-          <strong>“Transformou a rotina da nossa escola”</strong>
-          <div class="small" style="margin-top:8px;color:var(--muted)">— Prof. Ana Silva, Coordenadora pedagógica</div>
-        </div>
-        <div class="card">
-          <strong>“Fácil de aplicar e com resultados reais”</strong>
-          <div class="small" style="margin-top:8px;color:var(--muted)">— Lucas Pereira, Gestor de RH</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" style="margin-top:36px">
+    <section id="contact" style="margin-top:28px">
       <h2 style="margin:0 0 12px">Contato / Solicitar demonstração</h2>
-      <div class="card" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
-        <div style="flex:1;min-width:240px">
-          <p class="small" style="margin:0 0 12px;color:var(--muted)">Quer uma apresentação rápida para sua turma ou escola? Agende uma demo.</p>
+      <div class="card" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <div style="flex:1;min-width:220px">
+          <p class="small" style="margin:0 0 8px;color:var(--muted)">Quer apresentar o Brawl Heart para sua turma ou instituição? Agende uma demo rápida.</p>
           <p style="margin:0"><strong>Email:</strong> <a href="mailto:seu-email@exemplo.com">seu-email@exemplo.com</a></p>
-          <p style="margin:8px 0 0"><strong>Telefone/WhatsApp:</strong> <span class="small" style="color:var(--muted)">(xx) 9xxxx-xxxx</span></p>
         </div>
         <div style="min-width:220px;text-align:right">
-          <a class="cta-btn" href="mailto:seu-email@exemplo.com?subject=Solicitar%20demonstra%C3%A7%C3%A3o%20Brawl%20Heart">Solicitar demonstração</a>
+          <a class="cta-btn" href="mailto:seu-email@exemplo.com?subject=Agendar%20demonstra%C3%A7%C3%A3o">Solicitar demonstração</a>
         </div>
       </div>
     </section>
@@ -166,5 +157,93 @@
       <div class="small">Desenvolvido por thalysontsuki — pronto para apresentar à sua professora.</div>
     </div>
   </footer>
+
+  <!-- Modal (inserido via JS quando necessário) -->
+  <script>
+    // Lista extensa de códigos de países (ISO 3166-1 alpha-2).
+    // Se quiser "todas" as bandeiras, substitua/remova códigos conforme necessidade.
+    const countryCodes = [
+      "AF","AL","DZ","AS","AD","AO","AQ","AG","AR","AM","AW","AU","AT","AZ",
+      "BS","BH","BD","BB","BY","BE","BZ","BJ","BM","BT","BO","BQ","BA","BW","BR","IO","BN","BG","BF","BI",
+      "CV","KH","CM","CA","KY","CF","TD","CL","CN","CX","CO","KM","CG","CD","CK","CR","CI","HR","CU","CW",
+      "CY","CZ","DK","DJ","DM","DO","EC","EG","SV","GQ","ER","EE","SZ","ET","FK","FO","FJ","FI","FR","GF",
+      "PF","GA","GM","GE","DE","GH","GI","GR","GL","GD","GP","GU","GT","GG","GN","GW","GY","HT","HN","HK",
+      "HU","IS","IN","ID","IR","IQ","IE","IM","IL","IT","JM","JP","JE","JO","KZ","KE","KI","KP","KR","XK",
+      "KW","KG","LA","LV","LB","LS","LR","LY","LI","LT","LU","MO","MG","MW","MY","MV","ML","MT","MH","MQ",
+      "MR","MU","YT","MX","FM","MD","MC","MN","ME","MS","MA","MZ","MM","NA","NR","NP","NL","NC","NZ","NI",
+      "NE","NG","NU","NF","MK","MP","NO","OM","PK","PW","PS","PA","PG","PY","PE","PH","PN","PL","PT","PR",
+      "QA","RE","RO","RU","RW","BL","SH","KN","LC","MF","PM","VC","WS","SM","ST","SA","SN","RS","SC","SL",
+      "SG","SX","SK","SI","SB","SO","ZA","GS","SS","ES","LK","SD","SR","SE","CH","SY","TW","TJ","TZ","TH",
+      "TL","TG","TK","TO","TT","TN","TR","TM","TC","TV","UG","UA","AE","GB","US","UM","UY","UZ","VU","VA",
+      "VE","VN","VG","VI","WF","EH","YE","ZM","ZW"
+    ];
+
+    // gera emoji da bandeira a partir do código do país
+    function flagFromCode(code) {
+      const OFFSET = 0x1F1E6 - 'A'.charCodeAt(0);
+      return code.toUpperCase().split('').map(c => String.fromCodePoint(c.charCodeAt(0) + OFFSET)).join('');
+    }
+
+    // popular container com bandeiras
+    const flagsContainer = document.getElementById('flagsContainer');
+    countryCodes.forEach(code => {
+      const span = document.createElement('span');
+      span.className = 'flag';
+      span.textContent = flagFromCode(code);
+      span.title = code;
+      flagsContainer.appendChild(span);
+    });
+
+    // Modal demo
+    const demoBtn = document.getElementById('demoBtn');
+    demoBtn.addEventListener('click', ()=> {
+      openDemoModal();
+    });
+
+    function openDemoModal(){
+      // montar modal
+      const backdrop = document.createElement('div');
+      backdrop.className = 'modal-backdrop';
+      backdrop.id = 'demoModal';
+      backdrop.innerHTML = `
+        <div class="modal" role="dialog" aria-modal="true" aria-label="Demonstração do Brawl Heart">
+          <div class="modal-header">
+            <div style="font-weight:800">Demonstração rápida — Brawl Heart</div>
+            <button id="closeDemo" style="background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer">✕</button>
+          </div>
+          <div class="modal-body">
+            <div class="product-image">
+              <!-- Substitua por <img src="product.jpg" alt="Brawl Heart" style="width:100%;height:100%;object-fit:cover;border-radius:8px"> -->
+              <div style="text-align:center">
+                <div style="font-weight:700">Imagem do produto</div>
+                <div class="small" style="margin-top:6px;color:var(--muted)">coloque product.jpg na raiz para substituir</div>
+              </div>
+            </div>
+            <div style="flex:1;min-width:220px">
+              <p style="margin:0 0 8px;color:var(--muted)">
+                Brawl Heart é uma solução prática para implementar ações de bem‑estar com materiais prontos e métricas de impacto.
+                Nesta demonstração mostramos o painel resumo, atividades semanais e um modelo de relatório simples.
+              </p>
+              <ul style="margin:10px 0 0 18px;color:var(--muted)">
+                <li>Dashboard de engajamento</li>
+                <li>Kits de atividades semanais</li>
+                <li>Relatórios automáticos para professor/gestor</li>
+              </ul>
+              <div style="margin-top:12px">
+                <a class="cta-btn" href="mailto:seu-email@exemplo.com?subject=Demo%20Brawl%20Heart">Agendar demo real</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(backdrop);
+      document.getElementById('closeDemo').addEventListener('click', ()=> {
+        backdrop.remove();
+      });
+      backdrop.addEventListener('click', (e)=> {
+        if(e.target === backdrop) backdrop.remove();
+      });
+    }
+  </script>
 </body>
 </html>
