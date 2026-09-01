@@ -3,386 +3,99 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EcoImpact — Plataforma de Sustentabilidade Ambiental</title>
-  <meta name="description" content="EcoImpact: plataforma profissional para monitorar, gerenciar e reduzir o impacto ambiental com dados em tempo real e estratégias de sustentabilidade." />
-  <meta name="theme-color" content="#071026" />
-  <style>
-    :root{
-      --bg:#071026; --card:#0b1220; --accent:#1fb6ff; --accent-2:#8be56f;
-      --muted:#9aa4b2; --text:#e6eef6; --radius:12px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#02101a 0%,var(--bg) 60%);color:var(--text);-webkit-font-smoothing:antialiased}
-    a{color:var(--accent);text-decoration:none}
-    header{max-width:1100px;margin:0 auto;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:#021018;font-size:24px}
-    nav{display:flex;gap:12px;align-items:center}
-    nav a{color:var(--muted);padding:8px 12px;border-radius:8px;font-size:14px;transition:color 0.2s}
-    nav a:hover{color:var(--text)}
-    .cta-btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021018;padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer;transition:transform 0.2s}
-    .cta-btn:hover{transform:scale(1.02)}
-    main{max-width:1100px;margin:0 auto;padding:18px}
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding-top:6px}
-    .hero h1{font-size:30px;margin:0 0 12px;line-height:1.05}
-    .hero p{margin:0 0 16px;color:var(--muted);font-size:15px}
-    .buttons{display:flex;gap:12px;flex-wrap:wrap}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:16px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
-    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-    .product-card{cursor:pointer;transition:transform 0.2s,border-color 0.2s;border-color:rgba(31,182,255,0.2)}
-    .product-card:hover{transform:translateY(-4px);border-color:var(--accent)}
-    .product-card h3{margin:0 0 8px;font-size:16px}
-    .product-card p{color:var(--muted);margin:0;font-size:14px}
-    .lang-selector{position:relative;display:inline-block}
-    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:6px;transition:border-color 0.2s}
-    .lang-btn:hover{border-color:var(--accent)}
-    .lang-dropdown{position:absolute;top:100%;right:0;background:var(--card);border:1px solid rgba(255,255,255,0.1);border-radius:8px;margin-top:4px;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,0.4);z-index:50;display:none;max-height:200px;overflow-y:auto}
-    .lang-dropdown.active{display:block}
-    .lang-option{display:flex;align-items:center;gap:10px;padding:10px 14px;color:var(--muted);cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.03);transition:color 0.2s,background 0.2s}
-    .lang-option:last-child{border-bottom:none}
-    .lang-option:hover{background:rgba(31,182,255,0.1);color:var(--text)}
-    .flag-icon{font-size:18px}
-    .countries-modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;padding:20px;z-index:70;display:none}
-    .countries-modal.active{display:flex}
-    .countries-content{background:var(--card);border-radius:12px;width:100%;max-width:600px;max-height:70vh;overflow-y:auto;padding:20px}
-    .countries-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-    .countries-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:12px}
-    .country-item{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(31,182,255,0.1);cursor:pointer;transition:all 0.2s}
-    .country-item:hover{background:rgba(31,182,255,0.2);border-color:var(--accent)}
-    .country-item .flag{font-size:32px;margin-bottom:6px}
-    .country-item .name{font-size:12px;text-align:center;color:var(--muted)}
-    footer{max-width:1100px;margin:28px auto 40px;padding:20px;color:var(--muted);font-size:14px;text-align:center}
-    .small{font-size:13px;color:var(--muted)}
-    /* modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;padding:20px;z-index:60}
-    .modal{background:var(--card);padding:18px;border-radius:12px;max-width:880px;width:100%;color:var(--text)}
-    .modal-header{display:flex;justify-content:space-between;align-items:center;gap:12px}
-    .modal-body{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
-    .product-image{width:320px;height:240px;border-radius:10px;background:linear-gradient(135deg, rgba(139,229,111,0.1), rgba(31,182,255,0.1));display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700;font-size:60px}
-    @media (max-width:920px){
-      .hero{grid-template-columns:1fr; text-align:center}
-      .products{grid-template-columns:1fr}
-      nav{display:none}
-      .modal-body{flex-direction:column;align-items:center}
-      .product-image{width:100%;height:200px}
-      .countries-grid{grid-template-columns:repeat(auto-fill,minmax(70px,1fr))}
-    }
-  </style>
+  <title>Produtos — Exemplo</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="brand" aria-label="EcoImpact">
-      <div class="logo" aria-hidden="true">🌱</div>
-      <div>
-        <div style="font-weight:800">EcoImpact</div>
-        <div class="small">Sustentabilidade & Impacto Ambiental</div>
-      </div>
-    </div>
-
-    <nav aria-label="Navegação">
-      <a href="#produtos">Produtos</a>
-      <a href="#recursos">Recursos</a>
-      <div class="lang-selector">
-        <button class="lang-btn" id="langToggle">🌐 Idioma</button>
-        <div class="lang-dropdown" id="langDropdown">
-          <div class="lang-option" data-lang="pt-BR">
-            <span class="flag-icon">🇧🇷</span>
-            <span>Português (Brasil)</span>
-          </div>
-          <div class="lang-option" data-lang="en-US">
-            <span class="flag-icon">🇺🇸</span>
-            <span>English</span>
-          </div>
-          <div class="lang-option" data-lang="es-ES">
-            <span class="flag-icon">🇪🇸</span>
-            <span>Español</span>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:8px;padding-top:8px">
-            <div class="lang-option" id="showCountries" style="border-bottom:none">
-              <span class="flag-icon">🌍</span>
-              <span>Ver todos os países</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+  <header class="topbar">
+    <h1>Loja Exemplo</h1>
   </header>
 
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
-        <h1 id="hero-title">Transforme seu impacto ambiental em dados mensuráveis</h1>
-        <p>EcoImpact é a plataforma profissional para empresas, ONGs e instituições gerenciarem, monitorarem e reduzirem seu impacto ambiental com estratégias baseadas em inteligência artificial e dados em tempo real.</p>
+  <main class="container">
+    <section class="product-grid" id="productGrid">
+      <!-- Cards gerados pelo HTML estático abaixo; no seu projeto, gere com loop/JS -->
+      <article class="product-card" data-id="1" data-name="Tênis Chuva" data-price="249.90" data-img="https://via.placeholder.com/800x600?text=Tenis+Chuva" data-desc="Tênis confortável, resistente à água. Solado antiderrapante.">
+        <img class="product-thumb" src="https://via.placeholder.com/400x300?text=Tenis+Chuva" alt="Tênis Chuva" />
+        <div class="product-info">
+          <h3 class="product-title">Tênis Chuva</h3>
+          <p class="product-price">R$ 249,90</p>
+          <button class="btn view-product">Ver produto</button>
+        </div>
+      </article>
 
-        <div class="buttons" role="group" aria-label="Ações principais">
-          <a class="cta-btn" href="#produtos">📊 Ver Produtos</a>
-          <a class="card" href="#recursos">✨ Recursos</a>
-          <a class="card" href="mailto:contato@ecoimpact.com">📩 Contato</a>
+      <article class="product-card" data-id="2" data-name="Mochila Trail" data-price="159.90" data-img="https://via.placeholder.com/800x600?text=Mochila+Trail" data-desc="Mochila resistente com vários compartimentos e suporte lombar.">
+        <img class="product-thumb" src="https://via.placeholder.com/400x300?text=Mochila+Trail" alt="Mochila Trail" />
+        <div class="product-info">
+          <h3 class="product-title">Mochila Trail</h3>
+          <p class="product-price">R$ 159,90</p>
+          <button class="btn view-product">Ver produto</button>
         </div>
+      </article>
 
-        <div style="margin-top:18px" class="card">
-          <strong>Por que usar EcoImpact?</strong>
-          <p class="small" style="margin-top:8px;color:var(--muted)">
-            Monitoramento completo em tempo real, relatórios automáticos com conformidade ESG e ISO 14001, metas de sustentabilidade rastreáveis, e inteligência artificial para otimizar redução de emissões e desperdícios em sua operação.
-          </p>
-        </div>
-      </div>
-
-      <aside class="card" aria-hidden="false" style="text-align:center">
-        <div class="product-image" id="heroImage">
-          🌍
-        </div>
-      </aside>
-    </section>
-
-    <section id="produtos" style="margin-top:42px">
-      <h2 style="margin:0 0 12px">📦 Produtos</h2>
-      <div class="products" role="list">
-        <div class="product-card card" role="listitem" onclick="openProductModal('monitoramento')">
-          <h3>📡 Monitoramento Ambiental</h3>
-          <p>Acompanhe em tempo real as métricas ambientais: emissões de carbono, consumo de água, energia renovável, resíduos e reciclagem com dashboards intuitivos.</p>
-          <div class="small" style="margin-top:10px;color:var(--accent)">Explorar →</div>
-        </div>
-        <div class="product-card card" role="listitem" onclick="openProductModal('relatorios')">
-          <h3>📈 Relatórios de Impacto</h3>
-          <p>Gere relatórios profissionais automaticamente com análise detalhada de emissões, comparativos históricos, benchmarks da indústria e conformidade regulatória.</p>
-          <div class="small" style="margin-top:10px;color:var(--accent)">Explorar →</div>
-        </div>
-        <div class="product-card card" role="listitem" onclick="openProductModal('estrategia')">
-          <h3>🎯 Planos de Ação Estratégicos</h3>
-          <p>Desenvolva estratégias personalizadas de sustentabilidade com metas mensuráveis, recomendações de IA, gestão de tarefas e acompanhamento de progresso em tempo real.</p>
-          <div class="small" style="margin-top:10px;color:var(--accent)">Explorar →</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="recursos" style="margin-top:42px">
-      <h2 style="margin:0 0 12px">✨ Recursos Principais</h2>
-      <div class="card">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-          <div>
-            <p style="margin:0 0 12px"><strong>📊 Dashboard Profissional</strong></p>
-            <p class="small">Visualize indicadores-chave de sustentabilidade com gráficos interativos, alertas automáticos e insights em tempo real.</p>
-          </div>
-          <div>
-            <p style="margin:0 0 12px"><strong>🤖 Inteligência Artificial</strong></p>
-            <p class="small">Recomendações inteligentes para reduzir emissões, otimizar recursos e identificar oportunidades de melhoria contínua.</p>
-          </div>
-          <div>
-            <p style="margin:0 0 12px"><strong>📋 Conformidade Regulatória</strong></p>
-            <p class="small">Atenda padrões ESG, ISO 14001, COP28 e legislação ambiental com relatórios e documentação automática.</p>
-          </div>
-          <div>
-            <p style="margin:0 0 12px"><strong>🌐 Relatórios Públicos</strong></p>
-            <p class="small">Compartilhe seu compromisso ambiental com transparência total para stakeholders, investidores e comunidade.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section style="margin-top:42px">
-      <h2 style="margin:0 0 12px">Comece Sua Jornada de Sustentabilidade</h2>
-      <div class="card" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-        <div style="flex:1;min-width:220px">
-          <p class="small" style="margin:0 0 8px;color:var(--muted)">Quer fazer a diferença no meio ambiente? Comece a medir, analisar e reduzir seu impacto ambiental hoje com EcoImpact.</p>
-          <p style="margin:0"><strong>Contato:</strong> <a href="mailto:contato@ecoimpact.com">contato@ecoimpact.com</a></p>
-        </div>
-        <div style="min-width:220px;text-align:right">
-          <a class="cta-btn" href="mailto:contato@ecoimpact.com?subject=Quero%20conhecer%20EcoImpact">Fale Conosco</a>
-        </div>
-      </div>
+      <!-- Adicione mais cards conforme necessário -->
     </section>
   </main>
 
-  <footer>
-    <div style="max-width:1100px;margin:0 auto">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div class="small">© <strong>EcoImpact</strong> — Sustentabilidade Profissional</div>
-        <div class="small"><a href="https://github.com/thalysontsuki/Brawl-tsuki" target="_blank" rel="noopener">Código</a> · <a href="#" target="_blank" rel="noopener">Privacidade</a></div>
-      </div>
-      <div style="height:8px"></div>
-      <div class="small">Desenvolvido por thalysontsuki — Plataforma de Impacto Ambiental</div>
-    </div>
-  </footer>
+  <!-- Modal de produto -->
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+      <div class="modal-body">
+        <div class="modal-left">
+          <img id="modalImage" src="" alt="Imagem do produto" />
+          <div class="thumbs" id="modalThumbs"></div>
+        </div>
+        <div class="modal-right">
+          <h2 id="modalTitle">Título do produto</h2>
+          <p class="modal-price" id="modalPrice">R$ 0,00</p>
+          <p class="modal-desc" id="modalDesc">Descrição do produto</p>
 
-  <!-- Modal de Países -->
-  <div class="countries-modal" id="countriesModal">
-    <div class="countries-content">
-      <div class="countries-header">
-        <h2 style="margin:0">🌍 Disponível em Países de Todo o Mundo</h2>
-        <button id="closeCountries" style="background:transparent;border:0;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
+          <div class="options">
+            <label>Cor
+              <select id="optionColor">
+                <option value="preto">Preto</option>
+                <option value="branco">Branco</option>
+                <option value="azul">Azul</option>
+              </select>
+            </label>
+
+            <label>Tamanho
+              <select id="optionSize">
+                <option value="p">P</option>
+                <option value="m" selected>M</option>
+                <option value="g">G</option>
+                <option value="gg">GG</option>
+              </select>
+            </label>
+
+            <label>Quantidade
+              <div class="qty">
+                <button id="qtyMinus" class="qty-btn">−</button>
+                <input id="qtyInput" type="number" min="1" value="1" />
+                <button id="qtyPlus" class="qty-btn">+</button>
+              </div>
+            </label>
+          </div>
+
+          <div class="modal-actions">
+            <button class="btn primary" id="addCart">Adicionar ao carrinho</button>
+            <button class="btn ghost" id="buyNow">Comprar agora</button>
+          </div>
+
+          <details class="more-options">
+            <summary>Mais opções e especificações</summary>
+            <ul>
+              <li>Frete grátis acima de R$199</li>
+              <li>Entrega em 3–7 dias úteis</li>
+              <li>30 dias de garantia de devolução</li>
+            </ul>
+          </details>
+        </div>
       </div>
-      <div class="countries-grid" id="countriesGrid"></div>
     </div>
   </div>
 
-  <script>
-    // Lista de países com bandeiras e nomes
-    const countries = [
-      {code: 'BR', name: 'Brasil'},
-      {code: 'US', name: 'EUA'},
-      {code: 'MX', name: 'México'},
-      {code: 'AR', name: 'Argentina'},
-      {code: 'CO', name: 'Colômbia'},
-      {code: 'CL', name: 'Chile'},
-      {code: 'PE', name: 'Peru'},
-      {code: 'VE', name: 'Venezuela'},
-      {code: 'EC', name: 'Equador'},
-      {code: 'BO', name: 'Bolívia'},
-      {code: 'PY', name: 'Paraguai'},
-      {code: 'UY', name: 'Uruguai'},
-      {code: 'ES', name: 'Espanha'},
-      {code: 'PT', name: 'Portugal'},
-      {code: 'FR', name: 'França'},
-      {code: 'DE', name: 'Alemanha'},
-      {code: 'IT', name: 'Itália'},
-      {code: 'GB', name: 'Reino Unido'},
-      {code: 'NL', name: 'Holanda'},
-      {code: 'BE', name: 'Bélgica'},
-      {code: 'SE', name: 'Suécia'},
-      {code: 'NO', name: 'Noruega'},
-      {code: 'DK', name: 'Dinamarca'},
-      {code: 'FI', name: 'Finlândia'},
-      {code: 'PL', name: 'Polônia'},
-      {code: 'CZ', name: 'República Tcheca'},
-      {code: 'RO', name: 'Romênia'},
-      {code: 'GR', name: 'Grécia'},
-      {code: 'RU', name: 'Rússia'},
-      {code: 'UA', name: 'Ucrânia'},
-      {code: 'TR', name: 'Turquia'},
-      {code: 'EG', name: 'Egito'},
-      {code: 'ZA', name: 'África do Sul'},
-      {code: 'NG', name: 'Nigéria'},
-      {code: 'KE', name: 'Quênia'},
-      {code: 'MA', name: 'Marrocos'},
-      {code: 'CN', name: 'China'},
-      {code: 'JP', name: 'Japão'},
-      {code: 'IN', name: 'Índia'},
-      {code: 'ID', name: 'Indonésia'},
-      {code: 'TH', name: 'Tailândia'},
-      {code: 'VN', name: 'Vietnã'},
-      {code: 'KR', name: 'Coreia do Sul'},
-      {code: 'SG', name: 'Singapura'},
-      {code: 'MY', name: 'Malásia'},
-      {code: 'PH', name: 'Filipinas'},
-      {code: 'AU', name: 'Austrália'},
-      {code: 'NZ', name: 'Nova Zelândia'},
-      {code: 'CA', name: 'Canadá'},
-      {code: 'SA', name: 'Arábia Saudita'},
-      {code: 'AE', name: 'Emirados Árabes'},
-      {code: 'IL', name: 'Israel'},
-      {code: 'PK', name: 'Paquistão'},
-      {code: 'BD', name: 'Bangladesh'},
-    ];
-
-    function flagFromCode(code) {
-      const OFFSET = 0x1F1E6 - 'A'.charCodeAt(0);
-      return code.toUpperCase().split('').map(c => String.fromCodePoint(c.charCodeAt(0) + OFFSET)).join('');
-    }
-
-    // Popular grid de países
-    const countriesGrid = document.getElementById('countriesGrid');
-    countries.forEach(country => {
-      const item = document.createElement('div');
-      item.className = 'country-item';
-      item.innerHTML = `
-        <div class="flag">${flagFromCode(country.code)}</div>
-        <div class="name">${country.name}</div>
-      `;
-      countriesGrid.appendChild(item);
-    });
-
-    // Seletor de idiomas
-    const langToggle = document.getElementById('langToggle');
-    const langDropdown = document.getElementById('langDropdown');
-    const showCountries = document.getElementById('showCountries');
-    const countriesModal = document.getElementById('countriesModal');
-    const closeCountries = document.getElementById('closeCountries');
-    
-    langToggle.addEventListener('click', (e)=> {
-      e.stopPropagation();
-      langDropdown.classList.toggle('active');
-    });
-
-    showCountries.addEventListener('click', (e)=> {
-      e.stopPropagation();
-      langDropdown.classList.remove('active');
-      countriesModal.classList.add('active');
-    });
-
-    closeCountries.addEventListener('click', ()=> {
-      countriesModal.classList.remove('active');
-    });
-
-    countriesModal.addEventListener('click', (e)=> {
-      if(e.target === countriesModal) countriesModal.classList.remove('active');
-    });
-
-    document.addEventListener('click', ()=> {
-      langDropdown.classList.remove('active');
-    });
-
-    document.querySelectorAll('.lang-option:not(#showCountries)').forEach(option => {
-      option.addEventListener('click', (e)=> {
-        e.stopPropagation();
-        const lang = option.getAttribute('data-lang');
-        localStorage.setItem('lang', lang);
-        alert(`Idioma alterado para: ${option.textContent}`);
-        langDropdown.classList.remove('active');
-      });
-    });
-
-    // Modal de Produtos
-    function openProductModal(type) {
-      const products = {
-        monitoramento: {
-          title: '📡 Monitoramento Ambiental',
-          desc: 'Acompanhe em tempo real as métricas ambientais mais importantes da sua operação: emissões de carbono, consumo de água, energia renovável, resíduos, reciclagem e muito mais. Receba alertas automáticos quando metas forem ultrapassadas e ajuste sua estratégia em tempo real.'
-        },
-        relatorios: {
-          title: '📈 Relatórios de Impacto',
-          desc: 'Gere relatórios profissionais e totalmente automatizados com análise detalhada de emissões, comparativos com períodos anteriores, benchmarks de indústria, conformidade com regulamentações ambientais internacionais e recomendações de otimização.'
-        },
-        estrategia: {
-          title: '🎯 Planos de Ação Estratégicos',
-          desc: 'Desenvolva estratégias de sustentabilidade personalizadas baseadas em IA com metas mensuráveis, atribuição automática de tarefas para equipes, acompanhamento de progresso em tempo real e recomendações de priorização para máximo impacto ambiental.'
-        }
-      };
-
-      const product = products[type] || products.monitoramento;
-      
-      const backdrop = document.createElement('div');
-      backdrop.className = 'modal-backdrop';
-      backdrop.id = 'productModal';
-      backdrop.innerHTML = `
-        <div class="modal" role="dialog" aria-modal="true" aria-label="${product.title}">
-          <div class="modal-header">
-            <div style="font-weight:800">${product.title}</div>
-            <button id="closeModal" style="background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer">✕</button>
-          </div>
-          <div class="modal-body">
-            <div class="product-image">
-              🌿
-            </div>
-            <div style="flex:1;min-width:220px">
-              <p style="margin:0 0 12px;color:var(--muted);line-height:1.6">
-                ${product.desc}
-              </p>
-              <div style="margin-top:16px">
-                <a class="cta-btn" href="mailto:contato@ecoimpact.com?subject=Interesse%20em%20${type}">Acessar Agora</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(backdrop);
-      document.getElementById('closeModal').addEventListener('click', ()=> {
-        backdrop.remove();
-      });
-      backdrop.addEventListener('click', (e)=> {
-        if(e.target === backdrop) backdrop.remove();
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
