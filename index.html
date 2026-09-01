@@ -2,525 +2,1249 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tsuki PureAir</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Tsuki PureAir - conceito de purificador de ar inteligente">
+<title>Tsuki PureAir | Tecnologia para um ar melhor</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#07111f;
-color:white;
-line-height:1.6;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07111f;
+    color:#ffffff;
+    line-height:1.7;
+    overflow-x:hidden;
 }
-header{
-background:#0d1b2d;
-padding:18px;
-position:sticky;
-top:0;
-z-index:10;
-border-bottom:1px solid #29415d;
+
+a{
+    color:inherit;
+    text-decoration:none;
 }
-.logo{
-font-size:24px;
-font-weight:bold;
+
+button,
+input{
+    font:inherit;
 }
-.logo span{color:#59e3bd}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root{
+    --bg:#07111f;
+    --bg2:#0a1727;
+    --card:#0e1d31;
+    --card2:#11263b;
+    --border:#29435e;
+    --primary:#59e3bd;
+    --primary2:#38bfa0;
+    --text:#ffffff;
+    --muted:#aebed0;
+    --blue:#58a6ff;
+    --shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
 .container{
-width:92%;
-max-width:1150px;
-margin:auto;
+    width:92%;
+    max-width:1180px;
+    margin:auto;
 }
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,17,31,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.header-content{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
 nav{
-display:flex;
-gap:18px;
-flex-wrap:wrap;
-margin-top:10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
 }
+
 nav a{
-color:#b9c9dc;
-text-decoration:none;
+    color:#c3d0df;
+    padding:9px 13px;
+    border-radius:9px;
+    transition:.2s;
 }
-nav a:hover{color:#59e3bd}
+
+nav a:hover{
+    background:#10253a;
+    color:var(--primary);
+}
+
+.nav-countries{
+    background:var(--primary);
+    color:#061b16!important;
+    font-weight:bold;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-padding:70px 0;
-background:linear-gradient(135deg,#07111f,#12334a);
+    min-height:700px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 80% 20%,rgba(89,227,189,.18),transparent 30%),
+        radial-gradient(circle at 10% 80%,rgba(88,166,255,.12),transparent 28%),
+        linear-gradient(135deg,#07111f,#0b1d30);
 }
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    padding:8px 13px;
+    border:1px solid rgba(89,227,189,.35);
+    background:rgba(89,227,189,.08);
+    color:var(--primary);
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
 .hero h1{
-font-size:clamp(40px,8vw,70px);
-line-height:1;
-margin-bottom:20px;
+    font-size:clamp(44px,7vw,76px);
+    line-height:1.02;
+    margin-bottom:24px;
+    letter-spacing:-2px;
 }
-.hero p{
-max-width:700px;
-font-size:18px;
-color:#bdcada;
+
+.hero h1 span{
+    color:var(--primary);
 }
-.button{
-display:inline-block;
-margin-top:25px;
-padding:13px 20px;
-background:#59e3bd;
-color:#061b16;
-border-radius:10px;
-font-weight:bold;
-text-decoration:none;
+
+.hero-text{
+    color:var(--muted);
+    font-size:19px;
+    max-width:700px;
+    margin-bottom:28px;
 }
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px 20px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.2s;
+    border:1px solid transparent;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:#061b16;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    border-color:var(--border);
+    background:#0d1c2e;
+    color:#fff;
+}
+
+.btn-secondary:hover{
+    border-color:var(--primary);
+}
+
+/* =========================================================
+   PRODUTO VISUAL
+========================================================= */
+
+.product-display{
+    position:relative;
+    min-height:440px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.air-device{
+    width:260px;
+    height:360px;
+    border-radius:45px;
+    background:
+        linear-gradient(145deg,#f9ffff,#b9d5d8);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        inset 0 0 25px rgba(255,255,255,.7);
+    position:relative;
+    animation:floatDevice 4s ease-in-out infinite;
+}
+
+@keyframes floatDevice{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-14px);
+    }
+}
+
+.device-top{
+    position:absolute;
+    top:20px;
+    left:25px;
+    right:25px;
+    height:45px;
+    border-radius:25px;
+    background:#d9eeee;
+}
+
+.device-screen{
+    position:absolute;
+    top:90px;
+    left:40px;
+    right:40px;
+    height:90px;
+    border-radius:18px;
+    background:#071c2a;
+    border:3px solid #95c7c5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+
+.device-screen strong{
+    color:var(--primary);
+    font-size:27px;
+}
+
+.device-screen small{
+    color:#c7d8df;
+}
+
+.device-grille{
+    position:absolute;
+    bottom:50px;
+    left:40px;
+    right:40px;
+    height:80px;
+    border-radius:18px;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #80999d 0,
+            #80999d 5px,
+            transparent 5px,
+            transparent 13px
+        );
+}
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
 
 section{
-padding:65px 0;
-}
-h2{
-font-size:36px;
-margin-bottom:15px;
-}
-.intro{
-color:#b8c7d9;
-max-width:750px;
-margin-bottom:30px;
+    padding:90px 0;
 }
 
-.card-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
+.section-title{
+    font-size:40px;
+    line-height:1.15;
+    margin-bottom:15px;
 }
+
+.section-subtitle{
+    color:var(--muted);
+    max-width:780px;
+    margin-bottom:38px;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
 .card{
-background:#0e1d31;
-border:1px solid #243d59;
-border-radius:18px;
-padding:24px;
-}
-.card h3{margin-bottom:8px}
-.card p{color:#b9c7d7}
-
-.country-tools{
-display:flex;
-gap:12px;
-margin:25px 0;
-flex-wrap:wrap;
-}
-.country-tools input{
-flex:1;
-min-width:230px;
-}
-.country-tools input,
-.country-tools select{
-background:#0e1d31;
-color:white;
-border:1px solid #29445f;
-border-radius:12px;
-padding:14px;
-font-size:16px;
-outline:none;
-}
-.country-tools input:focus,
-.country-tools select:focus{
-border-color:#59e3bd;
+    background:linear-gradient(145deg,var(--card),#0b1929);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:27px;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+    transition:.25s;
 }
 
-.country-count{
-color:#aebed0;
-margin-bottom:20px;
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(89,227,189,.65);
 }
 
-.country-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:12px;
+.icon{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:15px;
+    background:#102b3a;
+    font-size:27px;
+    margin-bottom:18px;
 }
 
-.country-card{
-background:#0e1d31;
-border:1px solid #243d59;
-border-radius:16px;
-padding:18px 10px;
-text-align:center;
-transition:.2s;
-}
-.country-card:hover{
-transform:translateY(-5px);
-border-color:#59e3bd;
-}
-.flag{
-font-size:43px;
-margin-bottom:8px;
-}
-.country-card h3{
-font-size:15px;
-margin-bottom:4px;
-}
-.country-card span{
-font-size:12px;
-color:#91a6bd;
+.card h3{
+    font-size:21px;
+    margin-bottom:9px;
 }
 
-.no-results{
-display:none;
-text-align:center;
-padding:30px;
-color:#aebed0;
+.card p{
+    color:var(--muted);
 }
+
+/* =========================================================
+   SOBRE
+========================================================= */
+
+.about{
+    background:#091726;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    align-items:center;
+}
+
+.about-box{
+    background:#0d1d30;
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:30px;
+}
+
+.about-box h3{
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.about-box p{
+    color:var(--muted);
+    margin-bottom:15px;
+}
+
+.check-list{
+    list-style:none;
+}
+
+.check-list li{
+    margin:13px 0;
+    color:#d6e3ee;
+}
+
+.check-list li::before{
+    content:"✓";
+    color:var(--primary);
+    font-weight:bold;
+    margin-right:10px;
+}
+
+/* =========================================================
+   FUNCIONAMENTO
+========================================================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.step{
+    position:relative;
+    padding:26px;
+    background:#0d1d30;
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.step-number{
+    font-size:14px;
+    color:var(--primary);
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.step h3{
+    margin-bottom:8px;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:15px;
+}
+
+/* =========================================================
+   TECNOLOGIA
+========================================================= */
+
+.tech{
+    background:
+        radial-gradient(circle at 90% 20%,rgba(89,227,189,.07),transparent 30%),
+        #081523;
+}
+
+.tech-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.tech-item{
+    padding:25px;
+    border-radius:18px;
+    background:#0d1e31;
+    border:1px solid var(--border);
+}
+
+.tech-item h3{
+    margin-bottom:8px;
+}
+
+.tech-item p{
+    color:var(--muted);
+}
+
+/* =========================================================
+   INDICADORES
+========================================================= */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.metric{
+    background:#0d1d30;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+}
+
+.metric-label{
+    color:#93a9bd;
+    font-size:13px;
+}
+
+.metric-value{
+    font-size:30px;
+    color:var(--primary);
+    font-weight:bold;
+    margin:7px 0;
+}
+
+.metric-status{
+    font-size:13px;
+    color:#a9bac9;
+}
+
+/* =========================================================
+   SUSTENTABILIDADE
+========================================================= */
+
+.eco{
+    background:#091b1b;
+}
+
+.eco-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    max-width:900px;
+    margin:auto;
+}
+
+details{
+    background:#0d1d30;
+    border:1px solid var(--border);
+    border-radius:15px;
+    margin:12px 0;
+    padding:18px 20px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:bold;
+}
+
+details p{
+    color:var(--muted);
+    margin-top:12px;
+}
+
+/* =========================================================
+   SOBRE O PROJETO
+========================================================= */
+
+.project{
+    text-align:center;
+    background:
+        linear-gradient(135deg,#0b2032,#0a1726);
+}
+
+.project p{
+    color:var(--muted);
+    max-width:760px;
+    margin:0 auto 25px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-padding:35px 0;
-border-top:1px solid #20354d;
-color:#9eb0c4;
+    padding:40px 0;
+    border-top:1px solid var(--border);
+    background:#050d17;
 }
 
-@media(max-width:900px){
-.country-grid{
-grid-template-columns:repeat(4,1fr);
+.footer-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 }
-.card-grid{
-grid-template-columns:1fr 1fr;
+
+footer p{
+    color:#8fa3b7;
 }
+
+.footer-links{
+    display:flex;
+    justify-content:flex-end;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    color:#9eb1c4;
+}
+
+.footer-links a:hover{
+    color:var(--primary);
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:950px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-text{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .product-display{
+        min-height:380px;
+    }
+
+    .grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dashboard{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tech-list{
+        grid-template-columns:1fr;
+    }
+
+    .eco-grid{
+        grid-template-columns:1fr 1fr;
+    }
 }
 
 @media(max-width:650px){
-.country-grid{
-grid-template-columns:repeat(2,1fr);
+
+    .header-content{
+        flex-direction:column;
+        padding:15px 0;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    nav a{
+        font-size:13px;
+        padding:7px 9px;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:80px 0;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero-text{
+        font-size:16px;
+    }
+
+    section{
+        padding:60px 0;
+    }
+
+    .section-title{
+        font-size:31px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .eco-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-links{
+        justify-content:flex-start;
+    }
+
+    .air-device{
+        width:210px;
+        height:300px;
+    }
 }
-.card-grid{
-grid-template-columns:1fr;
-}
-}
+
 </style>
 </head>
 
 <body>
 
+<!-- ===================================================== -->
+<!-- CABEÇALHO -->
+<!-- ===================================================== -->
+
 <header>
-<div class="container">
-<div class="logo">BRAWL <span>TSUKI</span></div>
+
+<div class="container header-content">
+
+<a href="#inicio" class="logo">
+TSUKI <span>PUREAIR</span>
+</a>
 
 <nav>
+
 <a href="#inicio">Início</a>
+
 <a href="#produto">Produto</a>
-<a href="#funciona">Como funciona</a>
+
+<a href="#funciona">Funcionamento</a>
+
+<a href="#tecnologia">Tecnologia</a>
+
 <a href="#beneficios">Benefícios</a>
-<a href="#paises">Países</a>
+
+<a href="#faq">FAQ</a>
+
+<a href="paises.html" class="nav-countries">
+🌎 Países
+</a>
+
 </nav>
+
 </div>
+
 </header>
+
+<!-- ===================================================== -->
+<!-- HERO -->
+<!-- ===================================================== -->
 
 <main>
 
 <section class="hero" id="inicio">
-<div class="container">
-<h1>Tsuki PureAir</h1>
-<p>
-Uma ideia de tecnologia criada para ajudar a tornar ambientes
-internos mais confortáveis e incentivar o cuidado com a qualidade
-do ar.
-</p>
-<a class="button" href="#produto">Conheça o produto</a>
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+🌿 TECNOLOGIA PARA O AMBIENTE
 </div>
+
+<h1>
+Conheça o
+<span>Tsuki PureAir</span>
+</h1>
+
+<p class="hero-text">
+Um conceito de purificador de ar inteligente desenvolvido
+para ajudar a tornar ambientes internos mais confortáveis,
+monitorando informações do ambiente e utilizando um sistema
+de filtragem.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#produto" class="btn btn-primary">
+Conhecer o produto
+</a>
+
+<a href="#funciona" class="btn btn-secondary">
+Como funciona
+</a>
+
+</div>
+
+</div>
+
+<div class="product-display">
+
+<div class="air-device">
+
+<div class="device-top"></div>
+
+<div class="device-screen">
+
+<strong>96%</strong>
+
+<small>Qualidade do ar</small>
+
+</div>
+
+<div class="device-grille"></div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+<!-- ===================================================== -->
+<!-- PRODUTO -->
+<!-- ===================================================== -->
 
 <section id="produto">
+
 <div class="container">
-<h2>🌿 O que é o Tsuki PureAir?</h2>
 
-<p class="intro">
-O Tsuki PureAir é um conceito de purificador de ar inteligente.
-A proposta é monitorar o ambiente e auxiliar na filtragem de
-partículas presentes no ar.
+<h2 class="section-title">
+🌿 O que é o Tsuki PureAir?
+</h2>
+
+<p class="section-subtitle">
+O Tsuki PureAir é um conceito de produto criado para demonstrar
+como sensores, filtragem e tecnologia inteligente poderiam
+trabalhar juntos em um equipamento voltado para ambientes
+internos.
 </p>
 
-<div class="card-grid">
+<div class="grid">
 
 <div class="card">
-<h3>🌬️ Filtragem</h3>
+
+<div class="icon">
+💨
+</div>
+
+<h3>
+Filtragem do ar
+</h3>
+
 <p>
-O sistema foi pensado para utilizar camadas de filtragem
-para ajudar a reduzir partículas presentes no ambiente.
+O conceito utiliza um sistema de filtragem responsável por
+receber o ar do ambiente, fazer o processo de filtragem e
+devolver o ar ao espaço.
 </p>
+
 </div>
 
 <div class="card">
-<h3>📊 Monitoramento</h3>
+
+<div class="icon">
+📊
+</div>
+
+<h3>
+Monitoramento
+</h3>
+
 <p>
-Sensores poderiam acompanhar indicadores da qualidade do ar
-e mostrar essas informações de forma simples.
+Sensores poderiam acompanhar diferentes indicadores do
+ambiente e apresentar essas informações de maneira simples
+para o usuário.
 </p>
+
 </div>
 
 <div class="card">
-<h3>🤖 Automático</h3>
+
+<div class="icon">
+🤖
+</div>
+
+<h3>
+Modo inteligente
+</h3>
+
 <p>
-O aparelho poderia ajustar seu funcionamento automaticamente
-de acordo com as condições detectadas.
+O sistema poderia ajustar automaticamente sua intensidade
+de funcionamento conforme os dados recebidos pelos sensores.
 </p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
+
+<!-- ===================================================== -->
+<!-- SOBRE O PRODUTO -->
+<!-- ===================================================== -->
+
+<section class="about">
+
+<div class="container about-grid">
+
+<div>
+
+<h2 class="section-title">
+Pensado para ambientes modernos
+</h2>
+
+<p class="section-subtitle">
+O objetivo do conceito é unir tecnologia e praticidade em
+um único equipamento. A ideia é que o usuário consiga
+entender rapidamente o estado do ambiente.
+</p>
+
+<ul class="check-list">
+
+<li>
+Interface simples e fácil de entender
+</li>
+
+<li>
+Monitoramento em tempo real
+</li>
+
+<li>
+Modo automático de funcionamento
+</li>
+
+<li>
+Design pensado para ambientes internos
+</li>
+
+<li>
+Informações apresentadas de maneira clara
+</li>
+
+<li>
+Possibilidade de integração com tecnologias futuras
+</li>
+
+</ul>
+
+</div>
+
+<div class="about-box">
+
+<h3>
+💡 A ideia por trás do PureAir
+</h3>
+
+<p>
+Imagine entrar em um ambiente e conseguir visualizar
+rapidamente como estão as condições do ar.
+</p>
+
+<p>
+O Tsuki PureAir foi imaginado exatamente com essa proposta:
+transformar informações técnicas em uma experiência simples.
+</p>
+
+<p>
+Em uma versão futura, o conceito poderia receber sensores
+mais avançados, aplicativos e outros recursos inteligentes.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- COMO FUNCIONA -->
+<!-- ===================================================== -->
 
 <section id="funciona">
+
 <div class="container">
-<h2>⚙️ Como funciona?</h2>
 
-<div class="card-grid">
+<h2 class="section-title">
+⚙️ Como o Tsuki PureAir funciona?
+</h2>
 
-<div class="card">
-<h3>01 — Captar</h3>
-<p>
-O aparelho puxa o ar do ambiente para dentro.
+<p class="section-subtitle">
+O funcionamento pode ser dividido em quatro etapas principais.
 </p>
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">
+01
 </div>
 
-<div class="card">
-<h3>02 — Filtrar</h3>
+<h3>
+Captura
+</h3>
+
 <p>
-O ar passa pelas camadas de filtragem.
+O equipamento recebe o ar do ambiente por meio de suas
+entradas de circulação.
 </p>
+
 </div>
 
-<div class="card">
-<h3>03 — Monitorar</h3>
+<div class="step">
+
+<div class="step-number">
+02
+</div>
+
+<h3>
+Filtragem
+</h3>
+
 <p>
-Sensores acompanham as condições do ambiente.
+O ar passa por elementos de filtragem desenvolvidos para
+reter determinadas partículas.
 </p>
+
 </div>
 
-<div class="card">
-<h3>04 — Devolver</h3>
+<div class="step">
+
+<div class="step-number">
+03
+</div>
+
+<h3>
+Monitoramento
+</h3>
+
 <p>
-O ar retorna ao ambiente depois do processo de filtragem.
+Sensores acompanham informações do ambiente e enviam
+os dados para o sistema.
 </p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">
+04
+</div>
+
+<h3>
+Circulação
+</h3>
+
+<p>
+Depois do processo, o ar é devolvido ao ambiente para
+continuar o ciclo de circulação.
+</p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
+
+<!-- ===================================================== -->
+<!-- TECNOLOGIA -->
+<!-- ===================================================== -->
+
+<section class="tech" id="tecnologia">
+
+<div class="container">
+
+<h2 class="section-title">
+🔬 Tecnologia do PureAir
+</h2>
+
+<p class="section-subtitle">
+O conceito pode combinar diferentes tecnologias para criar
+uma experiência mais inteligente.
+</p>
+
+<div class="tech-list">
+
+<div class="tech-item">
+
+<h3>
+🌡️ Sensores ambientais
+</h3>
+
+<p>
+Sensores podem ser utilizados para acompanhar temperatura,
+umidade e outros dados relevantes para o ambiente.
+</p>
+
+</div>
+
+<div class="tech-item">
+
+<h3>
+🌫️ Sensor de partículas
+</h3>
+
+<p>
+Um sensor de partículas poderia estimar a quantidade de
+determinadas partículas presentes no ar.
+</p>
+
+</div>
+
+<div class="tech-item">
+
+<h3>
+🧠 Processamento inteligente
+</h3>
+
+<p>
+Um controlador poderia analisar os dados recebidos e
+determinar diferentes níveis de funcionamento.
+</p>
+
+</div>
+
+<div class="tech-item">
+
+<h3>
+📱 Conectividade
+</h3>
+
+<p>
+Uma versão futura poderia oferecer conexão com celular
+para mostrar informações e histórico do ambiente.
+</p>
+
+</div>
+
+<div class="tech-item">
+
+<h3>
+⚡ Controle automático
+</h3>
+
+<p>
+O aparelho poderia aumentar ou diminuir sua intensidade
+automaticamente conforme as condições detectadas.
+</p>
+
+</div>
+
+<div class="tech-item">
+
+<h3>
+🔔 Alertas
+</h3>
+
+<p>
+O sistema poderia avisar o usuário quando determinados
+indicadores atingissem níveis configurados.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- BENEFÍCIOS -->
+<!-- ===================================================== -->
 
 <section id="beneficios">
-<div class="container">
-<h2>❤️ Benefícios</h2>
 
-<div class="card-grid">
-
-<div class="card">
-<h3>🏠 Casa</h3>
-<p>
-Pode contribuir para um ambiente interno mais agradável.
-</p>
-</div>
-
-<div class="card">
-<h3>📚 Estudos</h3>
-<p>
-Pode ser pensado para salas de estudo e outros ambientes fechados.
-</p>
-</div>
-
-<div class="card">
-<h3>💻 Trabalho</h3>
-<p>
-A proposta também pode ser aplicada a ambientes de trabalho.
-</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- ===================================================== -->
-<!-- PAÍSES -->
-<!-- ===================================================== -->
-
-<section id="paises">
 <div class="container">
 
-<h2>🌎 Países do mundo</h2>
+<h2 class="section-title">
+✨ Possíveis benefícios
+</h2>
 
-<p class="intro">
-Explore os países e suas bandeiras. Use a pesquisa para encontrar
-rapidamente um país.
+<p class="section-subtitle">
+A proposta do produto é melhorar a experiência em ambientes
+fechados por meio de monitoramento e filtragem.
 </p>
 
-<div class="country-tools">
+<div class="grid">
 
-<input
-id="countrySearch"
-type="search"
-placeholder="🔎 Pesquisar país..."
->
+<div class="card">
 
-<select id="countryFilter">
+<div class="icon">
+🏠
+</div>
 
-<option value="todos">🌎 Todos</option>
-<option value="america">🌎 América</option>
-<option value="europa">🇪🇺 Europa</option>
-<option value="asia">🌏 Ásia</option>
-<option value="africa">🌍 África</option>
-<option value="oceania">🌊 Oceania</option>
+<h3>
+Ambientes domésticos
+</h3>
 
-</select>
+<p>
+O conceito poderia ser utilizado em quartos, salas e outros
+espaços internos onde exista necessidade de circulação e
+filtragem do ar.
+</p>
 
 </div>
 
-<div class="country-count">
-<strong id="countryCount">0</strong> países exibidos
+<div class="card">
+
+<div class="icon">
+📚
 </div>
 
-<div class="country-grid" id="countryGrid">
+<h3>
+Espaços de estudo
+</h3>
 
-<div class="country-card"><div class="flag">🇦🇫</div><h3>Afeganistão</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇿🇦</div><h3>África do Sul</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇦🇱</div><h3>Albânia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇩🇪</div><h3>Alemanha</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇦🇩</div><h3>Andorra</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇦🇴</div><h3>Angola</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇦🇬</div><h3>Antígua e Barbuda</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇸🇦</div><h3>Arábia Saudita</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇩🇿</div><h3>Argélia</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇦🇷</div><h3>Argentina</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇦🇲</div><h3>Armênia</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇦🇺</div><h3>Austrália</h3><span>Oceania</span></div>
-<div class="country-card"><div class="flag">🇦🇹</div><h3>Áustria</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇦🇿</div><h3>Azerbaijão</h3><span>Ásia</span></div>
+<p>
+A ideia também pode ser aplicada a ambientes destinados
+a estudos e concentração.
+</p>
 
-<div class="country-card"><div class="flag">🇧🇸</div><h3>Bahamas</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇧🇭</div><h3>Bahrein</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇧🇩</div><h3>Bangladesh</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇧🇧</div><h3>Barbados</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇧🇪</div><h3>Bélgica</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇧🇿</div><h3>Belize</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇧🇯</div><h3>Benin</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇧🇹</div><h3>Butão</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇧🇴</div><h3>Bolívia</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇧🇦</div><h3>Bósnia e Herzegovina</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇧🇼</div><h3>Botsuana</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇧🇷</div><h3>Brasil</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇧🇳</div><h3>Brunei</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇧🇬</div><h3>Bulgária</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇧🇫</div><h3>Burkina Faso</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇧🇮</div><h3>Burundi</h3><span>África</span></div>
+</div>
 
-<div class="country-card"><div class="flag">🇨🇻</div><h3>Cabo Verde</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇰🇭</div><h3>Camboja</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇨🇲</div><h3>Camarões</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇨🇦</div><h3>Canadá</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇶🇦</div><h3>Catar</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇰🇿</div><h3>Cazaquistão</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇹🇩</div><h3>Chade</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇨🇱</div><h3>Chile</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇨🇳</div><h3>China</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇨🇴</div><h3>Colômbia</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇰🇷</div><h3>Coreia do Sul</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇰🇵</div><h3>Coreia do Norte</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇨🇷</div><h3>Costa Rica</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇨🇮</div><h3>Costa do Marfim</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇭🇷</div><h3>Croácia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇨🇺</div><h3>Cuba</h3><span>América</span></div>
+<div class="card">
 
-<div class="country-card"><div class="flag">🇩🇰</div><h3>Dinamarca</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇩🇯</div><h3>Djibuti</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇩🇲</div><h3>Dominica</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇪🇬</div><h3>Egito</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇸🇻</div><h3>El Salvador</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇦🇪</div><h3>Emirados Árabes Unidos</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇪🇨</div><h3>Equador</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇪🇷</div><h3>Eritreia</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇸🇰</div><h3>Eslováquia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇸🇮</div><h3>Eslovênia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇪🇸</div><h3>Espanha</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇺🇸</div><h3>Estados Unidos</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇪🇪</div><h3>Estônia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇪🇹</div><h3>Etiópia</h3><span>África</span></div>
+<div class="icon">
+💻
+</div>
 
-<div class="country-card"><div class="flag">🇫🇯</div><h3>Fiji</h3><span>Oceania</span></div>
-<div class="country-card"><div class="flag">🇵🇭</div><h3>Filipinas</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇫🇮</div><h3>Finlândia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇫🇷</div><h3>França</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇬🇦</div><h3>Gabão</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇬🇲</div><h3>Gâmbia</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇬🇭</div><h3>Gana</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇬🇪</div><h3>Geórgia</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇬🇷</div><h3>Grécia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇬🇹</div><h3>Guatemala</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇬🇳</div><h3>Guiné</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇬🇼</div><h3>Guiné-Bissau</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇬🇾</div><h3>Guiana</h3><span>América</span></div>
+<h3>
+Escritórios
+</h3>
 
-<div class="country-card"><div class="flag">🇭🇹</div><h3>Haiti</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇭🇳</div><h3>Honduras</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇭🇺</div><h3>Hungria</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇮🇳</div><h3>Índia</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇮🇩</div><h3>Indonésia</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇮🇷</div><h3>Irã</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇮🇶</div><h3>Iraque</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇮🇪</div><h3>Irlanda</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇮🇸</div><h3>Islândia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇮🇱</div><h3>Israel</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇮🇹</div><h3>Itália</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇯🇲</div><h3>Jamaica</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇯🇵</div><h3>Japão</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇯🇴</div><h3>Jordânia</h3><span>Ásia</span></div>
-
-<div class="country-card"><div class="flag">🇰🇪</div><h3>Quênia</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇰🇼</div><h3>Kuwait</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇱🇦</div><h3>Laos</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇱🇻</div><h3>Letônia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇱🇧</div><h3>Líbano</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇱🇷</div><h3>Libéria</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇱🇾</div><h3>Líbia</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇱🇮</div><h3>Liechtenstein</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇱🇹</div><h3>Lituânia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇱🇺</div><h3>Luxemburgo</h3><span>Europa</span></div>
-
-<div class="country-card"><div class="flag">🇲🇬</div><h3>Madagascar</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇲🇾</div><h3>Malásia</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇲🇼</div><h3>Malawi</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇲🇻</div><h3>Maldivas</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇲🇱</div><h3>Mali</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇲🇹</div><h3>Malta</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇲🇦</div><h3>Marrocos</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇲🇺</div><h3>Maurício</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇲🇽</div><h3>México</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇲🇲</div><h3>Mianmar</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇫🇲</div><h3>Micronésia</h3><span>Oceania</span></div>
-<div class="country-card"><div class="flag">🇲🇩</div><h3>Moldávia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇲🇨</div><h3>Mônaco</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇲🇳</div><h3>Mongólia</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇲🇪</div><h3>Montenegro</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇲🇿</div><h3>Moçambique</h3><span>África</span></div>
-
-<div class="country-card"><div class="flag">🇳🇦</div><h3>Namíbia</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇳🇷</div><h3>Nauru</h3><span>Oceania</span></div>
-<div class="country-card"><div class="flag">🇳🇵</div><h3>Nepal</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇳🇮</div><h3>Nicarágua</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇳🇪</div><h3>Níger</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇳🇬</div><h3>Nigéria</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇳🇴</div><h3>Noruega</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇳🇿</div><h3>Nova Zelândia</h3><span>Oceania</span></div>
-<div class="country-card"><div class="flag">🇴🇲</div><h3>Omã</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇳🇱</div><h3>Países Baixos</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇵🇼</div><h3>Palau</h3><span>Oceania</span></div>
-<div class="country-card"><div class="flag">🇵🇸</div><h3>Palestina</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇵🇦</div><h3>Panamá</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇵🇬</div><h3>Papua-Nova Guiné</h3><span>Oceania</span></div>
-<div class="country-card"><div class="flag">🇵🇰</div><h3>Paquistão</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇵🇾</div><h3>Paraguai</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇵🇪</div><h3>Peru</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇵🇱</div><h3>Polônia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇵🇹</div><h3>Portugal</h3><span>Europa</span></div>
-
-<div class="country-card"><div class="flag">🇶🇦</div><h3>Catar</h3><span>Ásia</span></div>
-<div class="country-card"><div class="flag">🇬🇧</div><h3>Reino Unido</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇨🇿</div><h3>República Tcheca</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇨🇩</div><h3>República Democrática do Congo</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇩🇴</div><h3>República Dominicana</h3><span>América</span></div>
-<div class="country-card"><div class="flag">🇷🇴</div><h3>Romênia</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇷🇺</div><h3>Rússia</h3><span>Europa/Ásia</span></div>
-<div class="country-card"><div class="flag">🇷🇼</div><h3>Ruanda</h3><span>África</span></div>
-
-<div class="country-card"><div class="flag">🇼🇸</div><h3>Samoa</h3><span>Oceania</span></div>
-<div class="country-card"><div class="flag">🇸🇲</div><h3>San Marino</h3><span>Europa</span></div>
-<div class="country-card"><div class="flag">🇸🇹</div><h3>São Tomé e Príncipe</h3><span>África</span></div>
-<div class="country-card"><div class="flag">🇸🇳</div><h3>Senegal</h3><span>África</span></div>
-<div class="country-c
+<p>
+O equipamento poder
