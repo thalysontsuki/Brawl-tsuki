@@ -2,835 +2,796 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tsuki PureAir | Brawl Tsuki</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Brawl Tsuki - Tsuki PureAir</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#07111c;
-    color:#fff;
-    line-height:1.6;
+font-family:Arial,Helvetica,sans-serif;
+background:#06111b;
+color:white;
+line-height:1.6;
 }
 
 a{
-    text-decoration:none;
-    color:inherit;
+text-decoration:none;
+color:inherit;
 }
 
-button,
-input{
-    font-family:inherit;
+button,input{
+font-family:inherit;
 }
-
-/* ============================= */
-/* CABEÇALHO */
-/* ============================= */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(5,15,25,.94);
-    border-bottom:1px solid #21445b;
-    backdrop-filter:blur(12px);
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(4,14,23,.96);
+border-bottom:1px solid #20435a;
+backdrop-filter:blur(12px);
 }
 
 .navbar{
-    width:92%;
-    max-width:1200px;
-    min-height:70px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+width:92%;
+max-width:1200px;
+margin:auto;
+min-height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
 }
 
 .logo{
-    font-size:21px;
-    font-weight:900;
-    letter-spacing:-1px;
+font-size:22px;
+font-weight:900;
 }
 
 .logo span{
-    color:#55e39c;
+color:#55e39c;
 }
 
 .menu{
-    display:flex;
-    gap:20px;
-    align-items:center;
+display:flex;
+gap:22px;
+align-items:center;
+overflow-x:auto;
 }
 
 .menu a{
-    color:#b9cad4;
-    font-size:13px;
-    transition:.2s;
+font-size:13px;
+color:#b7c9d4;
+white-space:nowrap;
 }
 
 .menu a:hover{
-    color:#55e39c;
+color:#55e39c;
 }
 
 .btn{
-    border:0;
-    border-radius:8px;
-    padding:11px 18px;
-    cursor:pointer;
-    font-weight:800;
-    transition:.2s;
+border:0;
+border-radius:9px;
+padding:12px 20px;
+font-weight:bold;
+cursor:pointer;
+transition:.2s;
 }
 
 .btn:hover{
-    transform:translateY(-2px);
+transform:translateY(-2px);
 }
 
 .btn-green{
-    background:#55e39c;
-    color:#04130b;
+background:#55e39c;
+color:#03120a;
 }
 
 .btn-dark{
-    background:transparent;
-    border:1px solid #31556d;
-    color:#fff;
+background:transparent;
+border:1px solid #31576d;
+color:white;
 }
 
-/* ============================= */
 /* HERO */
-/* ============================= */
 
 .hero{
-    min-height:650px;
-    background:
-    radial-gradient(circle at 80% 45%,rgba(34,189,232,.16),transparent 30%),
-    radial-gradient(circle at 70% 75%,rgba(85,227,156,.12),transparent 28%),
-    linear-gradient(120deg,#040a11,#082033);
+min-height:650px;
+background:
+radial-gradient(circle at 80% 45%,rgba(34,189,232,.15),transparent 30%),
+linear-gradient(120deg,#030a11,#082235);
 }
 
 .hero-content{
-    width:92%;
-    max-width:1200px;
-    min-height:650px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
+width:92%;
+max-width:1200px;
+min-height:650px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
 }
 
 .tag{
-    color:#55e39c;
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:2px;
+color:#55e39c;
+font-size:12px;
+font-weight:900;
+letter-spacing:2px;
 }
 
 .hero h1{
-    font-size:clamp(48px,7vw,82px);
-    line-height:.9;
-    letter-spacing:-5px;
-    margin-top:12px;
+font-size:clamp(48px,7vw,82px);
+line-height:.9;
+letter-spacing:-4px;
+margin-top:12px;
 }
 
 .hero h1 span{
-    color:#55e39c;
+color:#55e39c;
 }
 
 .hero h2{
-    font-size:26px;
-    margin:22px 0 10px;
+font-size:26px;
+margin:20px 0 10px;
 }
 
 .hero p{
-    max-width:570px;
-    color:#b9cad3;
+max-width:570px;
+color:#b7cbd5;
 }
 
 .hero-buttons{
-    display:flex;
-    gap:10px;
-    margin-top:25px;
-    flex-wrap:wrap;
+display:flex;
+gap:10px;
+margin-top:25px;
+flex-wrap:wrap;
 }
 
 .numbers{
-    display:flex;
-    gap:35px;
-    margin-top:30px;
+display:flex;
+gap:35px;
+margin-top:30px;
 }
 
 .number strong{
-    display:block;
-    font-size:22px;
-    color:#55e39c;
+display:block;
+font-size:22px;
+color:#55e39c;
 }
 
 .number small{
-    color:#91a8b5;
+color:#91a8b5;
 }
 
-/* ============================= */
 /* PRODUTO */
-/* ============================= */
 
 .product-area{
-    height:520px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
+height:520px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
 }
 
 .glow{
-    position:absolute;
-    width:390px;
-    height:390px;
-    border-radius:50%;
-    background:rgba(85,227,156,.08);
-    box-shadow:0 0 100px rgba(34,189,232,.12);
+position:absolute;
+width:390px;
+height:390px;
+border-radius:50%;
+background:rgba(85,227,156,.08);
+box-shadow:0 0 100px rgba(34,189,232,.12);
 }
 
 .product{
-    width:225px;
-    height:330px;
-    border-radius:48px 48px 35px 35px;
-    background:
-    linear-gradient(
-        90deg,
-        #7e898b 0%,
-        #f4f7f6 25%,
-        #ffffff 55%,
-        #aab4b5 100%
-    );
-    position:relative;
-    box-shadow:
-    0 35px 60px rgba(0,0,0,.55),
-    inset -12px 0 18px rgba(0,0,0,.08);
+width:225px;
+height:330px;
+border-radius:48px 48px 35px 35px;
+background:
+linear-gradient(
+90deg,
+#7d898b 0%,
+#f4f7f6 25%,
+#fff 55%,
+#aab4b5 100%
+);
+position:relative;
+box-shadow:
+0 35px 60px rgba(0,0,0,.55),
+inset -12px 0 18px rgba(0,0,0,.08);
 }
 
 .product-top{
-    position:absolute;
-    width:155px;
-    height:55px;
-    top:11px;
-    left:35px;
-    border-radius:50%;
-    background:#152228;
-    border:7px solid #59666a;
+position:absolute;
+width:155px;
+height:55px;
+top:11px;
+left:35px;
+border-radius:50%;
+background:#152228;
+border:7px solid #59666a;
 }
 
-.product-top::after{
-    content:"TSUKI";
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    font-size:8px;
-    color:#22bde8;
-    font-weight:900;
+.product-top:after{
+content:"TSUKI";
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:8px;
+color:#22bde8;
+font-weight:900;
 }
 
 .product-light{
-    position:absolute;
-    top:88px;
-    left:50%;
-    transform:translateX(-50%);
-    width:7px;
-    height:76px;
-    border-radius:10px;
-    background:#55e39c;
-    box-shadow:0 0 20px #55e39c;
+position:absolute;
+top:88px;
+left:50%;
+transform:translateX(-50%);
+width:7px;
+height:76px;
+border-radius:10px;
+background:#55e39c;
+box-shadow:0 0 20px #55e39c;
+transition:.3s;
 }
 
 .product-filter{
-    position:absolute;
-    left:17px;
-    right:17px;
-    bottom:17px;
-    height:135px;
-    border-radius:15px;
-    background:
-    radial-gradient(#778486 1px,transparent 1.5px);
-    background-size:7px 7px;
-    opacity:.7;
+position:absolute;
+left:17px;
+right:17px;
+bottom:17px;
+height:135px;
+border-radius:15px;
+background:
+radial-gradient(#778486 1px,transparent 1.5px);
+background-size:7px 7px;
+opacity:.7;
 }
 
 .product-name{
-    position:absolute;
-    bottom:7px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:9px;
-    font-weight:bold;
-    color:#455156;
+position:absolute;
+bottom:7px;
+left:50%;
+transform:translateX(-50%);
+font-size:9px;
+font-weight:bold;
+color:#455156;
 }
 
-/* ============================= */
+/* CONTROLE DO PRODUTO */
+
+.product-control{
+margin-top:20px;
+background:rgba(5,20,30,.8);
+border:1px solid #21445b;
+border-radius:12px;
+padding:15px;
+width:300px;
+position:absolute;
+bottom:-55px;
+z-index:5;
+}
+
+.product-status{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:10px;
+}
+
+.status-dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#55e39c;
+box-shadow:0 0 10px #55e39c;
+display:inline-block;
+margin-right:7px;
+}
+
+.status-dot.off{
+background:#777;
+box-shadow:none;
+}
+
+.control-buttons{
+display:flex;
+gap:7px;
+}
+
+.control-buttons button{
+flex:1;
+padding:8px;
+border:1px solid #31576d;
+border-radius:7px;
+background:#0b2030;
+color:white;
+cursor:pointer;
+font-size:11px;
+}
+
 /* SEÇÕES */
-/* ============================= */
 
 section{
-    padding:75px 0;
-    border-bottom:1px solid #17364a;
+padding:75px 0;
+border-bottom:1px solid #17364a;
 }
 
 .container{
-    width:92%;
-    max-width:1200px;
-    margin:auto;
+width:92%;
+max-width:1200px;
+margin:auto;
 }
 
 .section-title{
-    text-align:center;
-    margin-bottom:35px;
+text-align:center;
+margin-bottom:35px;
 }
 
 .section-title h2{
-    font-size:34px;
+font-size:34px;
 }
 
 .section-title p{
-    color:#91a8b5;
-    margin-top:5px;
+color:#91a8b5;
+margin-top:5px;
 }
 
-/* ============================= */
 /* SOBRE */
-/* ============================= */
 
 .about{
-    display:grid;
-    grid-template-columns:390px 1fr;
-    gap:55px;
-    align-items:center;
+display:grid;
+grid-template-columns:390px 1fr;
+gap:55px;
+align-items:center;
 }
 
 .about-image{
-    height:330px;
-    border-radius:14px;
-    border:1px solid #21445b;
-    background:
-    radial-gradient(circle,rgba(85,227,156,.12),transparent 45%),
-    #081724;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+height:330px;
+border-radius:14px;
+border:1px solid #21445b;
+background:
+radial-gradient(circle,rgba(85,227,156,.12),transparent 45%),
+#081724;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .about-image .product{
-    transform:scale(.62);
+transform:scale(.62);
 }
 
 .about-text h2{
-    font-size:35px;
-    margin:7px 0 12px;
+font-size:35px;
+margin:7px 0 12px;
 }
 
 .about-text p{
-    color:#b6c9d3;
+color:#b6c9d3;
 }
 
 .check-list{
-    list-style:none;
-    margin-top:20px;
+list-style:none;
+margin-top:20px;
 }
 
 .check-list li{
-    margin:10px 0;
-    color:#d1dee4;
+margin:10px 0;
+color:#d1dee4;
 }
 
-.check-list li::before{
-    content:"✓";
-    color:#55e39c;
-    font-weight:bold;
-    margin-right:9px;
+.check-list li:before{
+content:"✓";
+color:#55e39c;
+font-weight:bold;
+margin-right:9px;
 }
 
-/* ============================= */
 /* CARDS */
-/* ============================= */
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
 }
 
 .card{
-    background:linear-gradient(145deg,#0d2335,#091a2a);
-    border:1px solid #21445b;
-    border-radius:11px;
-    padding:23px;
-    transition:.2s;
+background:linear-gradient(145deg,#0d2335,#091a2a);
+border:1px solid #21445b;
+border-radius:11px;
+padding:23px;
+transition:.2s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    border-color:#55e39c;
+transform:translateY(-5px);
+border-color:#55e39c;
 }
 
 .card-icon{
-    font-size:32px;
-    margin-bottom:12px;
+font-size:32px;
+margin-bottom:12px;
 }
 
 .card h3{
-    margin-bottom:7px;
+margin-bottom:7px;
 }
 
 .card p{
-    color:#91a8b5;
-    font-size:13px;
+color:#91a8b5;
+font-size:13px;
 }
 
-/* ============================= */
-/* COMO FUNCIONA */
-/* ============================= */
+/* FUNCIONAMENTO */
 
 .steps{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
 }
 
 .step{
-    text-align:center;
-    background:#091c2b;
-    border:1px solid #21445b;
-    padding:25px;
-    border-radius:11px;
+text-align:center;
+background:#091c2b;
+border:1px solid #21445b;
+padding:25px;
+border-radius:11px;
 }
 
 .step-number{
-    color:#55e39c;
-    font-size:12px;
-    font-weight:bold;
+color:#55e39c;
+font-size:12px;
+font-weight:bold;
 }
 
 .step-icon{
-    font-size:45px;
-    margin:8px;
+font-size:45px;
+margin:8px;
 }
 
 .step p{
-    color:#91a8b5;
-    font-size:13px;
-    margin-top:5px;
+color:#91a8b5;
+font-size:13px;
 }
 
-/* ============================= */
 /* TECNOLOGIA */
-/* ============================= */
 
 .tech{
-    display:grid;
-    grid-template-columns:1fr 430px;
-    gap:50px;
-    align-items:center;
+display:grid;
+grid-template-columns:1fr 430px;
+gap:50px;
+align-items:center;
 }
 
 .tech-list{
-    list-style:none;
+list-style:none;
 }
 
 .tech-list li{
-    padding:15px 0;
-    border-bottom:1px solid #19374b;
-    color:#c8d6dd;
+padding:15px 0;
+border-bottom:1px solid #19374b;
+color:#c8d6dd;
 }
 
 .tech-list span{
-    color:#55e39c;
-    margin-right:8px;
+color:#55e39c;
+margin-right:8px;
 }
 
 .diagram{
-    height:350px;
-    border-radius:14px;
-    border:1px solid #21445b;
-    background:
-    radial-gradient(circle,rgba(34,189,232,.12),transparent 55%),
-    #081724;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+height:350px;
+border-radius:14px;
+border:1px solid #21445b;
+background:
+radial-gradient(circle,rgba(34,189,232,.12),transparent 55%),
+#081724;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .diagram .product{
-    transform:scale(.72);
+transform:scale(.72);
 }
 
-/* ============================= */
-/* PAÍSES */
-/* ============================= */
+/* PAISES */
 
 .search-box{
-    max-width:700px;
-    margin:0 auto 25px;
-    display:flex;
-    gap:9px;
+max-width:700px;
+margin:0 auto 25px;
+display:flex;
+gap:9px;
 }
 
 .search-box input{
-    flex:1;
-    padding:14px;
-    border-radius:8px;
-    border:1px solid #21445b;
-    background:#071622;
-    color:#fff;
-    outline:none;
+flex:1;
+padding:14px;
+border-radius:8px;
+border:1px solid #21445b;
+background:#071622;
+color:white;
+outline:none;
+font-size:16px;
 }
 
 .search-box button{
-    border:0;
-    border-radius:8px;
-    padding:0 20px;
-    background:#55e39c;
-    font-weight:bold;
-    cursor:pointer;
+border:0;
+border-radius:8px;
+padding:0 20px;
+background:#55e39c;
+font-weight:bold;
+cursor:pointer;
 }
 
 .countries{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:9px;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:9px;
 }
 
 .country{
-    background:#0b2030;
-    border:1px solid #1e4055;
-    border-radius:9px;
-    padding:13px;
-    text-align:center;
-    transition:.2s;
+background:#0b2030;
+border:1px solid #1e4055;
+border-radius:9px;
+padding:13px;
+text-align:center;
+transition:.2s;
 }
 
 .country:hover{
-    transform:translateY(-3px);
-    border-color:#55e39c;
+transform:translateY(-3px);
+border-color:#55e39c;
 }
 
 .flag{
-    font-size:30px;
-    margin-bottom:5px;
+font-size:30px;
+margin-bottom:5px;
 }
 
 .country small{
-    display:block;
-    color:#718b99;
-    font-size:11px;
+display:block;
+color:#718b99;
+font-size:11px;
 }
 
-/* ============================= */
 /* CHECKLIST */
-/* ============================= */
 
 .check-container{
-    max-width:700px;
-    margin:auto;
-    padding:25px;
-    border:1px solid #21445b;
-    border-radius:11px;
-    background:#0b2030;
+max-width:700px;
+margin:auto;
+padding:25px;
+border:1px solid #21445b;
+border-radius:11px;
+background:#0b2030;
 }
 
 .task{
-    margin:13px 0;
-    display:block;
-    color:#d3dfe4;
+margin:13px 0;
+display:block;
+color:#d3dfe4;
+}
+
+.task input{
+margin-right:8px;
+accent-color:#55e39c;
 }
 
 .progress{
-    height:10px;
-    border-radius:20px;
-    background:#132e40;
-    overflow:hidden;
-    margin-top:20px;
+height:10px;
+border-radius:20px;
+background:#132e40;
+overflow:hidden;
+margin-top:20px;
 }
 
 .progress-bar{
-    width:0;
-    height:100%;
-    background:linear-gradient(90deg,#55e39c,#22bde8);
-    transition:.3s;
+width:0;
+height:100%;
+background:linear-gradient(90deg,#55e39c,#22bde8);
+transition:.3s;
 }
 
 .percent{
-    color:#91a8b5;
-    margin-top:8px;
-    font-size:13px;
+color:#91a8b5;
+margin-top:8px;
+font-size:13px;
 }
 
-/* ============================= */
 /* FAQ */
-/* ============================= */
 
 .faq{
-    max-width:900px;
-    margin:auto;
+max-width:900px;
+margin:auto;
 }
 
 details{
-    background:#0b2030;
-    border:1px solid #21445b;
-    border-radius:9px;
-    margin:9px 0;
+background:#0b2030;
+border:1px solid #21445b;
+border-radius:9px;
+margin:9px 0;
 }
 
 summary{
-    padding:17px;
-    cursor:pointer;
-    font-weight:bold;
+padding:17px;
+cursor:pointer;
+font-weight:bold;
 }
 
 details p{
-    color:#91a8b5;
-    padding:0 17px 17px;
-    font-size:14px;
+color:#91a8b5;
+padding:0 17px 17px;
+font-size:14px;
 }
 
-/* ============================= */
 /* FINAL */
-/* ============================= */
 
 .final{
-    text-align:center;
+text-align:center;
 }
 
 .final p{
-    max-width:650px;
-    margin:10px auto 22px;
-    color:#9db1bc;
+max-width:650px;
+margin:10px auto 22px;
+color:#9db1bc;
 }
 
 footer{
-    padding:30px 0;
-    background:#030a10;
+padding:30px 0;
+background:#030a10;
 }
 
 .footer{
-    width:92%;
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:15px;
-    color:#718792;
-    font-size:12px;
+width:92%;
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:15px;
+color:#718792;
+font-size:12px;
 }
 
-/* ============================= */
-/* BOTÃO TOPO */
-/* ============================= */
+/* TOPO */
 
 .top{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    width:44px;
-    height:44px;
-    border-radius:50%;
-    border:1px solid #31556d;
-    background:#0b2030;
-    color:#fff;
-    cursor:pointer;
-    display:none;
+position:fixed;
+right:18px;
+bottom:18px;
+width:44px;
+height:44px;
+border-radius:50%;
+border:1px solid #31556d;
+background:#0b2030;
+color:white;
+cursor:pointer;
+display:none;
+z-index:999;
 }
 
 .top.visible{
-    display:block;
+display:block;
 }
 
-/* ============================= */
 /* TOAST */
-/* ============================= */
 
 .toast{
-    position:fixed;
-    right:18px;
-    bottom:72px;
-    background:#0c2c3d;
-    border:1px solid #2e6076;
-    border-radius:8px;
-    padding:12px 16px;
-    opacity:0;
-    transform:translateY(15px);
-    transition:.25s;
-    pointer-events:none;
+position:fixed;
+right:18px;
+bottom:72px;
+background:#0c2c3d;
+border:1px solid #2e6076;
+border-radius:8px;
+padding:12px 16px;
+opacity:0;
+transform:translateY(15px);
+transition:.25s;
+pointer-events:none;
+z-index:2000;
 }
 
 .toast.show{
-    opacity:1;
-    transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
 
-/* ============================= */
 /* RESPONSIVO */
-/* ============================= */
 
 @media(max-width:950px){
 
-    .cards{
-        grid-template-columns:repeat(2,1fr);
-    }
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
 
-    .countries{
-        grid-template-columns:repeat(3,1fr);
-    }
+.countries{
+grid-template-columns:repeat(3,1fr);
+}
 
-    .steps{
-        grid-template-columns:repeat(2,1fr);
-    }
+.steps{
+grid-template-columns:repeat(2,1fr);
+}
 
-    .about,
-    .tech{
-        grid-template-columns:1fr;
-    }
+.about,
+.tech{
+grid-template-columns:1fr;
+}
 
 }
 
 @media(max-width:650px){
 
-    .navbar{
-        flex-wrap:wrap;
-        padding:10px 0;
-    }
-
-    .menu{
-        order:3;
-        width:100%;
-        overflow-x:auto;
-        justify-content:flex-start;
-        padding-bottom:5px;
-    }
-
-    .hero-content{
-        grid-template-columns:1fr;
-    }
-
-    .hero-text{
-        text-align:center;
-        padding-top:55px;
-    }
-
-    .hero p{
-        margin:auto;
-    }
-
-    .hero-buttons,
-    .numbers{
-        justify-content:center;
-    }
-
-    .product-area{
-        height:400px;
-    }
-
-    .cards,
-    .steps{
-        grid-template-columns:1fr;
-    }
-
-    .countries{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .search-box{
-        flex-direction:column;
-    }
-
-    .search-box button{
-        padding:13px;
-    }
-
+.navbar{
+flex-wrap:wrap;
+padding:10px 0;
 }
 
-/* ============================= */
-/* MODO CLARO */
-/* ============================= */
-
-body.light{
-    background:#eef4f6;
-    color:#13232d;
+.menu{
+order:3;
+width:100%;
+justify-content:flex-start;
 }
 
-body.light header{
-    background:rgba(255,255,255,.94);
+.hero-content{
+grid-template-columns:1fr;
 }
 
-body.light .menu a{
-    color:#40525d;
+.hero-text{
+text-align:center;
+padding-top:55px;
 }
 
-body.light section{
-    border-color:#cbdbe1;
+.hero p{
+margin:auto;
 }
 
-body.light .card,
-body.light .step,
-body.light .country,
-body.light .check-container,
-body.light details{
-    background:#fff;
-    border-color:#c8d8df;
+.hero-buttons,
+.numbers{
+justify-content:center;
 }
 
-body.light .hero{
-    background:linear-gradient(120deg,#dfeef2,#f8ffff);
+.product-area{
+height:470px;
 }
 
-body.light .hero p,
-body.light .card p,
-body.light .step p,
-body.light .about-text p,
-body.light .tech-list li,
-body.light .country small,
-body.light .percent,
-body.light details p{
-    color:#526873;
+.product-control{
+bottom:0;
 }
 
-body.light .diagram,
-body.light .about-image{
-    background:#e6f1f3;
+.cards,
+.steps{
+grid-template-columns:1fr;
 }
 
-body.light .btn-dark{
-    color:#13232d;
-    border-color:#91a9b5;
+.countries{
+grid-template-columns:repeat(2,1fr);
 }
 
-body.light .search-box input{
-    background:#fff;
-    color:#13232d;
+.search-box{
+flex-direction:column;
 }
 
-body.light footer{
-    background:#dce8eb;
+.search-box button{
+padding:13px;
 }
 
-/* ============================= */
-/* FIM DO CSS */
-/* ============================= */
+}
 </style>
 </head>
 
 <body>
 
 <header>
+
 <div class="navbar">
 
 <div class="logo">
@@ -851,6 +812,7 @@ Explorar
 </button>
 
 </div>
+
 </header>
 
 <main>
@@ -894,18 +856,18 @@ Ver tecnologia
 <div class="numbers">
 
 <div class="number">
-<strong>360°</strong>
-<small>Captação</small>
+<strong id="airValue">98%</strong>
+<small>Qualidade do ar</small>
 </div>
 
 <div class="number">
-<strong>3x</strong>
-<small>Filtragem</small>
+<strong id="hoursValue">0h</strong>
+<small>Funcionamento</small>
 </div>
 
 <div class="number">
-<strong>UV-C</strong>
-<small>Extra</small>
+<strong id="modeValue">AUTO</strong>
+<small>Modo</small>
 </div>
 
 </div>
@@ -920,12 +882,43 @@ Ver tecnologia
 
 <div class="product-top"></div>
 
-<div class="product-light"></div>
+<div class="product-light" id="mainLight"></div>
 
 <div class="product-filter"></div>
 
 <div class="product-name">
 TSUKI
+</div>
+
+</div>
+
+<div class="product-control">
+
+<div class="product-status">
+
+<div>
+<span class="status-dot" id="statusDot"></span>
+<span id="statusText">Ligado</span>
+</div>
+
+<strong id="qualityText">Excelente</strong>
+
+</div>
+
+<div class="control-buttons">
+
+<button onclick="toggleAir()">
+⏻ Ligar
+</button>
+
+<button onclick="automaticMode()">
+⚙️ Auto
+</button>
+
+<button onclick="resetAir()">
+↻ Reset
+</button>
+
 </div>
 
 </div>
@@ -978,25 +971,15 @@ design compacto, filtragem em etapas e tecnologia de monitoramento.
 
 <ul class="check-list">
 
-<li>
-Design moderno e compacto
-</li>
+<li>Design moderno e compacto</li>
 
-<li>
-Sistema de filtragem em etapas
-</li>
+<li>Sistema de filtragem em etapas</li>
 
-<li>
-Sensor de qualidade do ar
-</li>
+<li>Sensor de qualidade do ar</li>
 
-<li>
-Proposta de funcionamento automático
-</li>
+<li>Modo automático</li>
 
-<li>
-Interface simples e educativa
-</li>
+<li>Interface simples</li>
 
 </ul>
 
@@ -1027,67 +1010,35 @@ Uma proposta pensada para ambientes mais confortáveis.
 <div class="cards">
 
 <div class="card">
-
-<div class="card-icon">
-🍃
-</div>
-
-<h3>
-Ar mais limpo
-</h3>
-
+<div class="card-icon">🍃</div>
+<h3>Ar mais limpo</h3>
 <p>
 Ajuda a filtrar partículas presentes no ambiente.
 </p>
-
 </div>
 
 <div class="card">
-
-<div class="card-icon">
-🌿
-</div>
-
-<h3>
-Menos odores
-</h3>
-
+<div class="card-icon">🌿</div>
+<h3>Menos odores</h3>
 <p>
 O carvão ativado pode auxiliar na redução de alguns odores.
 </p>
-
 </div>
 
 <div class="card">
-
-<div class="card-icon">
-💨
-</div>
-
-<h3>
-Circulação
-</h3>
-
+<div class="card-icon">💨</div>
+<h3>Circulação</h3>
 <p>
 Movimenta o ar pelo sistema interno do aparelho.
 </p>
-
 </div>
 
 <div class="card">
-
-<div class="card-icon">
-🏠
-</div>
-
-<h3>
-Conforto
-</h3>
-
+<div class="card-icon">🏠</div>
+<h3>Conforto</h3>
 <p>
 Uma proposta voltada para ambientes mais agradáveis.
 </p>
-
 </div>
 
 </div>
@@ -1115,83 +1066,39 @@ O conceito funciona em quatro etapas.
 <div class="steps">
 
 <div class="step">
-
-<div class="step-number">
-ETAPA 01
-</div>
-
-<div class="step-icon">
-💨
-</div>
-
-<h3>
-Captação
-</h3>
-
+<div class="step-number">ETAPA 01</div>
+<div class="step-icon">💨</div>
+<h3>Captação</h3>
 <p>
-O ar entra pela estrutura externa do aparelho.
+O ar entra pela estrutura externa.
 </p>
-
 </div>
 
 <div class="step">
-
-<div class="step-number">
-ETAPA 02
-</div>
-
-<div class="step-icon">
-🧰
-</div>
-
-<h3>
-Filtragem
-</h3>
-
+<div class="step-number">ETAPA 02</div>
+<div class="step-icon">🧰</div>
+<h3>Filtragem</h3>
 <p>
-O ar passa por diferentes camadas de filtragem.
+O ar passa por camadas de filtragem.
 </p>
-
 </div>
 
 <div class="step">
-
-<div class="step-number">
-ETAPA 03
-</div>
-
-<div class="step-icon">
-🛡️
-</div>
-
-<h3>
-Tratamento
-</h3>
-
+<div class="step-number">ETAPA 03</div>
+<div class="step-icon">🛡️</div>
+<h3>Tratamento</h3>
 <p>
-O conceito inclui uma etapa adicional de tratamento.
+Uma etapa adicional de tratamento.
 </p>
-
 </div>
 
 <div class="step">
-
-<div class="step-number">
-ETAPA 04
-</div>
-
-<div class="step-icon">
-🌬️
-</div>
-
-<h3>
-Saída
-</h3>
-
+<div class="step-number">ETAPA 04</div>
+<div class="step-icon">🌬️</div>
+<h3>Saída</h3>
 <p>
-O ar tratado retorna para o ambiente.
+O ar retorna ao ambiente.
 </p>
-
 </div>
 
 </div>
@@ -1207,11 +1114,11 @@ O ar tratado retorna para o ambiente.
 <div class="section-title">
 
 <h2>
-Tecnologia
+Tecnologia e especificações
 </h2>
 
 <p>
-Conheça os principais componentes do conceito.
+Conheça os componentes do conceito.
 </p>
 
 </div>
@@ -1247,13 +1154,13 @@ Conheça os principais componentes do conceito.
 <li>
 <span>●</span>
 <strong>Sensor</strong>
-— acompanha informações sobre o ambiente.
+— acompanha informações do ambiente.
 </li>
 
 <li>
 <span>●</span>
 <strong>Modo automático</strong>
-— proposta de funcionamento inteligente.
+— funcionamento inteligente.
 </li>
 
 </ul>
@@ -1339,28 +1246,26 @@ Uma pequena ferramenta interativa do projeto.
 
 <label class="task">
 <input type="checkbox" class="taskCheck">
- Ambiente organizado
+Ambiente organizado
 </label>
 
 <label class="task">
 <input type="checkbox" class="taskCheck">
- Ventilação adequada
+Ventilação adequada
 </label>
 
 <label class="task">
 <input type="checkbox" class="taskCheck">
- Filtros verificados
+Filtros verificados
 </label>
 
 <label class="task">
 <input type="checkbox" class="taskCheck">
- Aparelho bem posicionado
+Aparelho bem posicionado
 </label>
 
 <div class="progress">
-
 <div class="progress-bar" id="progressBar"></div>
-
 </div>
 
 <div class="percent" id="percent">
@@ -1388,65 +1293,38 @@ Perguntas frequentes
 <div class="faq">
 
 <details>
-
-<summary>
-O que é o Tsuki PureAir?
-</summary>
-
+<summary>O que é o Tsuki PureAir?</summary>
 <p>
-É um conceito de purificador de ar inteligente criado para
-o projeto Brawl Tsuki.
+É um conceito de purificador de ar inteligente criado para o projeto Brawl Tsuki.
 </p>
-
 </details>
 
 <details>
-
-<summary>
-O produto é real?
-</summary>
-
+<summary>O produto é real?</summary>
 <p>
 A página apresenta um conceito visual e educativo de produto.
 </p>
-
 </details>
 
 <details>
-
-<summary>
-Quais filtros aparecem no conceito?
-</summary>
-
+<summary>Quais filtros aparecem no conceito?</summary>
 <p>
 O projeto apresenta pré-filtro, HEPA e carvão ativado.
 </p>
-
 </details>
 
 <details>
-
-<summary>
-Para que serve o sensor?
-</summary>
-
+<summary>Para que serve o sensor?</summary>
 <p>
 A proposta é acompanhar informações sobre a qualidade do ar.
 </p>
-
 </details>
 
 <details>
-
-<summary>
-O produto precisa de manutenção?
-</summary>
-
+<summary>O produto precisa de manutenção?</summary>
 <p>
-Em um aparelho real, a manutenção deve seguir as instruções
-do fabricante.
+Em um aparelho real, a manutenção deve seguir as instruções do fabricante.
 </p>
-
 </details>
 
 </div>
@@ -1459,4 +1337,165 @@ do fabricante.
 
 <div class="container final">
 
-<di
+<div class="tag">
+BRAWL TSUKI
+</div>
+
+<h2>
+Tecnologia também pode ser divertida.
+</h2>
+
+<p>
+Um projeto criado para misturar criatividade, tecnologia,
+design e aprendizado em uma única experiência.
+</p>
+
+<button class="btn btn-green" onclick="showToast('Obrigado por visitar o projeto!')">
+Testar interação
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="footer">
+
+<div>
+BRAWL TSUKI
+</div>
+
+<div>
+Tsuki PureAir • Projeto conceitual
+</div>
+
+<div>
+© 2026
+</div>
+
+</div>
+
+</footer>
+
+<button
+class="top"
+id="topButton"
+onclick="scrollTopPage()">
+↑
+</button>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* ==========================================
+   PAÍSES E BANDEIRAS
+========================================== */
+
+const countries=[
+
+["Afeganistão","🇦🇫"],
+["África do Sul","🇿🇦"],
+["Albânia","🇦🇱"],
+["Alemanha","🇩🇪"],
+["Andorra","🇦🇩"],
+["Angola","🇦🇴"],
+["Antígua e Barbuda","🇦🇬"],
+["Arábia Saudita","🇸🇦"],
+["Argélia","🇩🇿"],
+["Argentina","🇦🇷"],
+["Armênia","🇦🇲"],
+["Austrália","🇦🇺"],
+["Áustria","🇦🇹"],
+["Azerbaijão","🇦🇿"],
+["Bahamas","🇧🇸"],
+["Bahrein","🇧🇭"],
+["Bangladesh","🇧🇩"],
+["Barbados","🇧🇧"],
+["Bélgica","🇧🇪"],
+["Belize","🇧🇿"],
+["Benim","🇧🇯"],
+["Bielorrússia","🇧🇾"],
+["Bolívia","🇧🇴"],
+["Bósnia e Herzegovina","🇧🇦"],
+["Botsuana","🇧🇼"],
+["Brasil","🇧🇷"],
+["Brunei","🇧🇳"],
+["Bulgária","🇧🇬"],
+["Burkina Faso","🇧🇫"],
+["Burundi","🇧🇮"],
+["Butão","🇧🇹"],
+["Cabo Verde","🇨🇻"],
+["Camarões","🇨🇲"],
+["Camboja","🇰🇭"],
+["Canadá","🇨🇦"],
+["Catar","🇶🇦"],
+["Cazaquistão","🇰🇿"],
+["Chade","🇹🇩"],
+["Chile","🇨🇱"],
+["China","🇨🇳"],
+["Chipre","🇨🇾"],
+["Colômbia","🇨🇴"],
+["Comores","🇰🇲"],
+["Congo","🇨🇬"],
+["Coreia do Norte","🇰🇵"],
+["Coreia do Sul","🇰🇷"],
+["Costa do Marfim","🇨🇮"],
+["Costa Rica","🇨🇷"],
+["Croácia","🇭🇷"],
+["Cuba","🇨🇺"],
+["Dinamarca","🇩🇰"],
+["Djibuti","🇩🇯"],
+["Dominica","🇩🇲"],
+["Egito","🇪🇬"],
+["El Salvador","🇸🇻"],
+["Emirados Árabes Unidos","🇦🇪"],
+["Equador","🇪🇨"],
+["Eritreia","🇪🇷"],
+["Eslováquia","🇸🇰"],
+["Eslovênia","🇸🇮"],
+["Espanha","🇪🇸"],
+["Estados Unidos","🇺🇸"],
+["Estônia","🇪🇪"],
+["Eswatini","🇸🇿"],
+["Etiópia","🇪🇹"],
+["Fiji","🇫🇯"],
+["Filipinas","🇵🇭"],
+["Finlândia","🇫🇮"],
+["França","🇫🇷"],
+["Gabão","🇬🇦"],
+["Gâmbia","🇬🇲"],
+["Gana","🇬🇭"],
+["Geórgia","🇬🇪"],
+["Granada","🇬🇩"],
+["Grécia","🇬🇷"],
+["Guatemala","🇬🇹"],
+["Guiana","🇬🇾"],
+["Guiné","🇬🇳"],
+["Guiné-Bissau","🇬🇼"],
+["Guiné Equatorial","🇬🇶"],
+["Haiti","🇭🇹"],
+["Honduras","🇭🇳"],
+["Hungria","🇭🇺"],
+["Índia","🇮🇳"],
+["Indonésia","🇮🇩"],
+["Irã","🇮🇷"],
+["Iraque","🇮🇶"],
+["Irlanda","🇮🇪"],
+["Islândia","🇮🇸"],
+["Israel","🇮🇱"],
+["Itália","🇮🇹"],
+["Jamaica","🇯🇲"],
+["Japão","🇯🇵"],
+["Jordânia","🇯🇴"],
+["Kuwait","🇰🇼"],
+["Laos","🇱🇦"],
+["Letônia","🇱🇻"],
+["Líbano","🇱🇧"],
+["Libéria","🇱🇷"],
+["Líbia","🇱🇾"],
+["Liechtenstein","🇱🇮"],
+["Lit
