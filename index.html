@@ -1,101 +1,1462 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Produtos — Exemplo</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tsuki PureAir | Brawl Tsuki</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07111c;
+    color:#fff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+/* ============================= */
+/* CABEÇALHO */
+/* ============================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,15,25,.94);
+    border-bottom:1px solid #21445b;
+    backdrop-filter:blur(12px);
+}
+
+.navbar{
+    width:92%;
+    max-width:1200px;
+    min-height:70px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#55e39c;
+}
+
+.menu{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.menu a{
+    color:#b9cad4;
+    font-size:13px;
+    transition:.2s;
+}
+
+.menu a:hover{
+    color:#55e39c;
+}
+
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:11px 18px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-green{
+    background:#55e39c;
+    color:#04130b;
+}
+
+.btn-dark{
+    background:transparent;
+    border:1px solid #31556d;
+    color:#fff;
+}
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero{
+    min-height:650px;
+    background:
+    radial-gradient(circle at 80% 45%,rgba(34,189,232,.16),transparent 30%),
+    radial-gradient(circle at 70% 75%,rgba(85,227,156,.12),transparent 28%),
+    linear-gradient(120deg,#040a11,#082033);
+}
+
+.hero-content{
+    width:92%;
+    max-width:1200px;
+    min-height:650px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+}
+
+.tag{
+    color:#55e39c;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,82px);
+    line-height:.9;
+    letter-spacing:-5px;
+    margin-top:12px;
+}
+
+.hero h1 span{
+    color:#55e39c;
+}
+
+.hero h2{
+    font-size:26px;
+    margin:22px 0 10px;
+}
+
+.hero p{
+    max-width:570px;
+    color:#b9cad3;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.numbers{
+    display:flex;
+    gap:35px;
+    margin-top:30px;
+}
+
+.number strong{
+    display:block;
+    font-size:22px;
+    color:#55e39c;
+}
+
+.number small{
+    color:#91a8b5;
+}
+
+/* ============================= */
+/* PRODUTO */
+/* ============================= */
+
+.product-area{
+    height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.glow{
+    position:absolute;
+    width:390px;
+    height:390px;
+    border-radius:50%;
+    background:rgba(85,227,156,.08);
+    box-shadow:0 0 100px rgba(34,189,232,.12);
+}
+
+.product{
+    width:225px;
+    height:330px;
+    border-radius:48px 48px 35px 35px;
+    background:
+    linear-gradient(
+        90deg,
+        #7e898b 0%,
+        #f4f7f6 25%,
+        #ffffff 55%,
+        #aab4b5 100%
+    );
+    position:relative;
+    box-shadow:
+    0 35px 60px rgba(0,0,0,.55),
+    inset -12px 0 18px rgba(0,0,0,.08);
+}
+
+.product-top{
+    position:absolute;
+    width:155px;
+    height:55px;
+    top:11px;
+    left:35px;
+    border-radius:50%;
+    background:#152228;
+    border:7px solid #59666a;
+}
+
+.product-top::after{
+    content:"TSUKI";
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:8px;
+    color:#22bde8;
+    font-weight:900;
+}
+
+.product-light{
+    position:absolute;
+    top:88px;
+    left:50%;
+    transform:translateX(-50%);
+    width:7px;
+    height:76px;
+    border-radius:10px;
+    background:#55e39c;
+    box-shadow:0 0 20px #55e39c;
+}
+
+.product-filter{
+    position:absolute;
+    left:17px;
+    right:17px;
+    bottom:17px;
+    height:135px;
+    border-radius:15px;
+    background:
+    radial-gradient(#778486 1px,transparent 1.5px);
+    background-size:7px 7px;
+    opacity:.7;
+}
+
+.product-name{
+    position:absolute;
+    bottom:7px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:9px;
+    font-weight:bold;
+    color:#455156;
+}
+
+/* ============================= */
+/* SEÇÕES */
+/* ============================= */
+
+section{
+    padding:75px 0;
+    border-bottom:1px solid #17364a;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:34px;
+}
+
+.section-title p{
+    color:#91a8b5;
+    margin-top:5px;
+}
+
+/* ============================= */
+/* SOBRE */
+/* ============================= */
+
+.about{
+    display:grid;
+    grid-template-columns:390px 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.about-image{
+    height:330px;
+    border-radius:14px;
+    border:1px solid #21445b;
+    background:
+    radial-gradient(circle,rgba(85,227,156,.12),transparent 45%),
+    #081724;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.about-image .product{
+    transform:scale(.62);
+}
+
+.about-text h2{
+    font-size:35px;
+    margin:7px 0 12px;
+}
+
+.about-text p{
+    color:#b6c9d3;
+}
+
+.check-list{
+    list-style:none;
+    margin-top:20px;
+}
+
+.check-list li{
+    margin:10px 0;
+    color:#d1dee4;
+}
+
+.check-list li::before{
+    content:"✓";
+    color:#55e39c;
+    font-weight:bold;
+    margin-right:9px;
+}
+
+/* ============================= */
+/* CARDS */
+/* ============================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.card{
+    background:linear-gradient(145deg,#0d2335,#091a2a);
+    border:1px solid #21445b;
+    border-radius:11px;
+    padding:23px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#55e39c;
+}
+
+.card-icon{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    margin-bottom:7px;
+}
+
+.card p{
+    color:#91a8b5;
+    font-size:13px;
+}
+
+/* ============================= */
+/* COMO FUNCIONA */
+/* ============================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.step{
+    text-align:center;
+    background:#091c2b;
+    border:1px solid #21445b;
+    padding:25px;
+    border-radius:11px;
+}
+
+.step-number{
+    color:#55e39c;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.step-icon{
+    font-size:45px;
+    margin:8px;
+}
+
+.step p{
+    color:#91a8b5;
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* ============================= */
+/* TECNOLOGIA */
+/* ============================= */
+
+.tech{
+    display:grid;
+    grid-template-columns:1fr 430px;
+    gap:50px;
+    align-items:center;
+}
+
+.tech-list{
+    list-style:none;
+}
+
+.tech-list li{
+    padding:15px 0;
+    border-bottom:1px solid #19374b;
+    color:#c8d6dd;
+}
+
+.tech-list span{
+    color:#55e39c;
+    margin-right:8px;
+}
+
+.diagram{
+    height:350px;
+    border-radius:14px;
+    border:1px solid #21445b;
+    background:
+    radial-gradient(circle,rgba(34,189,232,.12),transparent 55%),
+    #081724;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.diagram .product{
+    transform:scale(.72);
+}
+
+/* ============================= */
+/* PAÍSES */
+/* ============================= */
+
+.search-box{
+    max-width:700px;
+    margin:0 auto 25px;
+    display:flex;
+    gap:9px;
+}
+
+.search-box input{
+    flex:1;
+    padding:14px;
+    border-radius:8px;
+    border:1px solid #21445b;
+    background:#071622;
+    color:#fff;
+    outline:none;
+}
+
+.search-box button{
+    border:0;
+    border-radius:8px;
+    padding:0 20px;
+    background:#55e39c;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.countries{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:9px;
+}
+
+.country{
+    background:#0b2030;
+    border:1px solid #1e4055;
+    border-radius:9px;
+    padding:13px;
+    text-align:center;
+    transition:.2s;
+}
+
+.country:hover{
+    transform:translateY(-3px);
+    border-color:#55e39c;
+}
+
+.flag{
+    font-size:30px;
+    margin-bottom:5px;
+}
+
+.country small{
+    display:block;
+    color:#718b99;
+    font-size:11px;
+}
+
+/* ============================= */
+/* CHECKLIST */
+/* ============================= */
+
+.check-container{
+    max-width:700px;
+    margin:auto;
+    padding:25px;
+    border:1px solid #21445b;
+    border-radius:11px;
+    background:#0b2030;
+}
+
+.task{
+    margin:13px 0;
+    display:block;
+    color:#d3dfe4;
+}
+
+.progress{
+    height:10px;
+    border-radius:20px;
+    background:#132e40;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.progress-bar{
+    width:0;
+    height:100%;
+    background:linear-gradient(90deg,#55e39c,#22bde8);
+    transition:.3s;
+}
+
+.percent{
+    color:#91a8b5;
+    margin-top:8px;
+    font-size:13px;
+}
+
+/* ============================= */
+/* FAQ */
+/* ============================= */
+
+.faq{
+    max-width:900px;
+    margin:auto;
+}
+
+details{
+    background:#0b2030;
+    border:1px solid #21445b;
+    border-radius:9px;
+    margin:9px 0;
+}
+
+summary{
+    padding:17px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+details p{
+    color:#91a8b5;
+    padding:0 17px 17px;
+    font-size:14px;
+}
+
+/* ============================= */
+/* FINAL */
+/* ============================= */
+
+.final{
+    text-align:center;
+}
+
+.final p{
+    max-width:650px;
+    margin:10px auto 22px;
+    color:#9db1bc;
+}
+
+footer{
+    padding:30px 0;
+    background:#030a10;
+}
+
+.footer{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:15px;
+    color:#718792;
+    font-size:12px;
+}
+
+/* ============================= */
+/* BOTÃO TOPO */
+/* ============================= */
+
+.top{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid #31556d;
+    background:#0b2030;
+    color:#fff;
+    cursor:pointer;
+    display:none;
+}
+
+.top.visible{
+    display:block;
+}
+
+/* ============================= */
+/* TOAST */
+/* ============================= */
+
+.toast{
+    position:fixed;
+    right:18px;
+    bottom:72px;
+    background:#0c2c3d;
+    border:1px solid #2e6076;
+    border-radius:8px;
+    padding:12px 16px;
+    opacity:0;
+    transform:translateY(15px);
+    transition:.25s;
+    pointer-events:none;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ============================= */
+/* RESPONSIVO */
+/* ============================= */
+
+@media(max-width:950px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .countries{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .steps{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about,
+    .tech{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:650px){
+
+    .navbar{
+        flex-wrap:wrap;
+        padding:10px 0;
+    }
+
+    .menu{
+        order:3;
+        width:100%;
+        overflow-x:auto;
+        justify-content:flex-start;
+        padding-bottom:5px;
+    }
+
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text{
+        text-align:center;
+        padding-top:55px;
+    }
+
+    .hero p{
+        margin:auto;
+    }
+
+    .hero-buttons,
+    .numbers{
+        justify-content:center;
+    }
+
+    .product-area{
+        height:400px;
+    }
+
+    .cards,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .countries{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .search-box button{
+        padding:13px;
+    }
+
+}
+
+/* ============================= */
+/* MODO CLARO */
+/* ============================= */
+
+body.light{
+    background:#eef4f6;
+    color:#13232d;
+}
+
+body.light header{
+    background:rgba(255,255,255,.94);
+}
+
+body.light .menu a{
+    color:#40525d;
+}
+
+body.light section{
+    border-color:#cbdbe1;
+}
+
+body.light .card,
+body.light .step,
+body.light .country,
+body.light .check-container,
+body.light details{
+    background:#fff;
+    border-color:#c8d8df;
+}
+
+body.light .hero{
+    background:linear-gradient(120deg,#dfeef2,#f8ffff);
+}
+
+body.light .hero p,
+body.light .card p,
+body.light .step p,
+body.light .about-text p,
+body.light .tech-list li,
+body.light .country small,
+body.light .percent,
+body.light details p{
+    color:#526873;
+}
+
+body.light .diagram,
+body.light .about-image{
+    background:#e6f1f3;
+}
+
+body.light .btn-dark{
+    color:#13232d;
+    border-color:#91a9b5;
+}
+
+body.light .search-box input{
+    background:#fff;
+    color:#13232d;
+}
+
+body.light footer{
+    background:#dce8eb;
+}
+
+/* ============================= */
+/* FIM DO CSS */
+/* ============================= */
+</style>
 </head>
+
 <body>
-  <header class="topbar">
-    <h1>Loja Exemplo</h1>
-  </header>
 
-  <main class="container">
-    <section class="product-grid" id="productGrid">
-      <!-- Cards gerados pelo HTML estático abaixo; no seu projeto, gere com loop/JS -->
-      <article class="product-card" data-id="1" data-name="Tênis Chuva" data-price="249.90" data-img="https://via.placeholder.com/800x600?text=Tenis+Chuva" data-desc="Tênis confortável, resistente à água. Solado antiderrapante.">
-        <img class="product-thumb" src="https://via.placeholder.com/400x300?text=Tenis+Chuva" alt="Tênis Chuva" />
-        <div class="product-info">
-          <h3 class="product-title">Tênis Chuva</h3>
-          <p class="product-price">R$ 249,90</p>
-          <button class="btn view-product">Ver produto</button>
-        </div>
-      </article>
+<header>
+<div class="navbar">
 
-      <article class="product-card" data-id="2" data-name="Mochila Trail" data-price="159.90" data-img="https://via.placeholder.com/800x600?text=Mochila+Trail" data-desc="Mochila resistente com vários compartimentos e suporte lombar.">
-        <img class="product-thumb" src="https://via.placeholder.com/400x300?text=Mochila+Trail" alt="Mochila Trail" />
-        <div class="product-info">
-          <h3 class="product-title">Mochila Trail</h3>
-          <p class="product-price">R$ 159,90</p>
-          <button class="btn view-product">Ver produto</button>
-        </div>
-      </article>
+<div class="logo">
+BRAWL <span>TSUKI</span>
+</div>
 
-      <!-- Adicione mais cards conforme necessário -->
-    </section>
-  </main>
+<nav class="menu">
+<a href="#sobre">Sobre</a>
+<a href="#beneficios">Benefícios</a>
+<a href="#funciona">Como funciona</a>
+<a href="#tecnologia">Tecnologia</a>
+<a href="#paises">Países</a>
+<a href="#faq">FAQ</a>
+</nav>
 
-  <!-- Modal de produto -->
-  <div class="modal" id="productModal" aria-hidden="true">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
-      <div class="modal-body">
-        <div class="modal-left">
-          <img id="modalImage" src="" alt="Imagem do produto" />
-          <div class="thumbs" id="modalThumbs"></div>
-        </div>
-        <div class="modal-right">
-          <h2 id="modalTitle">Título do produto</h2>
-          <p class="modal-price" id="modalPrice">R$ 0,00</p>
-          <p class="modal-desc" id="modalDesc">Descrição do produto</p>
+<button class="btn btn-green" onclick="showToast('Bem-vindo ao Brawl Tsuki!')">
+Explorar
+</button>
 
-          <div class="options">
-            <label>Cor
-              <select id="optionColor">
-                <option value="preto">Preto</option>
-                <option value="branco">Branco</option>
-                <option value="azul">Azul</option>
-              </select>
-            </label>
+</div>
+</header>
 
-            <label>Tamanho
-              <select id="optionSize">
-                <option value="p">P</option>
-                <option value="m" selected>M</option>
-                <option value="g">G</option>
-                <option value="gg">GG</option>
-              </select>
-            </label>
+<main>
 
-            <label>Quantidade
-              <div class="qty">
-                <button id="qtyMinus" class="qty-btn">−</button>
-                <input id="qtyInput" type="number" min="1" value="1" />
-                <button id="qtyPlus" class="qty-btn">+</button>
-              </div>
-            </label>
-          </div>
+<section class="hero">
 
-          <div class="modal-actions">
-            <button class="btn primary" id="addCart">Adicionar ao carrinho</button>
-            <button class="btn ghost" id="buyNow">Comprar agora</button>
-          </div>
+<div class="hero-content">
 
-          <details class="more-options">
-            <summary>Mais opções e especificações</summary>
-            <ul>
-              <li>Frete grátis acima de R$199</li>
-              <li>Entrega em 3–7 dias úteis</li>
-              <li>30 dias de garantia de devolução</li>
-            </ul>
-          </details>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="hero-text">
 
-  <script src="script.js"></script>
-</body>
-</html>
+<div class="tag">
+PROJETO TECNOLÓGICO • BRAWL TSUKI
+</div>
+
+<h1>
+TSUKI
+<span>PUREAIR</span>
+</h1>
+
+<h2>
+Respire vida. Inspire futuro.
+</h2>
+
+<p>
+Um conceito de purificador de ar inteligente criado para apresentar
+tecnologia, criatividade e aprendizado em uma experiência moderna.
+</p>
+
+<div class="hero-buttons">
+
+<a class="btn btn-green" href="#sobre">
+Conhecer o produto
+</a>
+
+<a class="btn btn-dark" href="#tecnologia">
+Ver tecnologia
+</a>
+
+</div>
+
+<div class="numbers">
+
+<div class="number">
+<strong>360°</strong>
+<small>Captação</small>
+</div>
+
+<div class="number">
+<strong>3x</strong>
+<small>Filtragem</small>
+</div>
+
+<div class="number">
+<strong>UV-C</strong>
+<small>Extra</small>
+</div>
+
+</div>
+
+</div>
+
+<div class="product-area">
+
+<div class="glow"></div>
+
+<div class="product">
+
+<div class="product-top"></div>
+
+<div class="product-light"></div>
+
+<div class="product-filter"></div>
+
+<div class="product-name">
+TSUKI
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="sobre">
+
+<div class="container">
+
+<div class="about">
+
+<div class="about-image">
+
+<div class="product">
+
+<div class="product-top"></div>
+
+<div class="product-light"></div>
+
+<div class="product-filter"></div>
+
+<div class="product-name">
+TSUKI
+</div>
+
+</div>
+
+</div>
+
+<div class="about-text">
+
+<div class="tag">
+SOBRE O PRODUTO
+</div>
+
+<h2>
+O que é o Tsuki PureAir?
+</h2>
+
+<p>
+O Tsuki PureAir é um conceito de purificador de ar inteligente
+desenvolvido dentro do projeto Brawl Tsuki. A proposta combina
+design compacto, filtragem em etapas e tecnologia de monitoramento.
+</p>
+
+<ul class="check-list">
+
+<li>
+Design moderno e compacto
+</li>
+
+<li>
+Sistema de filtragem em etapas
+</li>
+
+<li>
+Sensor de qualidade do ar
+</li>
+
+<li>
+Proposta de funcionamento automático
+</li>
+
+<li>
+Interface simples e educativa
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="beneficios">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Benefícios
+</h2>
+
+<p>
+Uma proposta pensada para ambientes mais confortáveis.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">
+🍃
+</div>
+
+<h3>
+Ar mais limpo
+</h3>
+
+<p>
+Ajuda a filtrar partículas presentes no ambiente.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon">
+🌿
+</div>
+
+<h3>
+Menos odores
+</h3>
+
+<p>
+O carvão ativado pode auxiliar na redução de alguns odores.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon">
+💨
+</div>
+
+<h3>
+Circulação
+</h3>
+
+<p>
+Movimenta o ar pelo sistema interno do aparelho.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon">
+🏠
+</div>
+
+<h3>
+Conforto
+</h3>
+
+<p>
+Uma proposta voltada para ambientes mais agradáveis.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="funciona">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Como funciona?
+</h2>
+
+<p>
+O conceito funciona em quatro etapas.
+</p>
+
+</div>
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">
+ETAPA 01
+</div>
+
+<div class="step-icon">
+💨
+</div>
+
+<h3>
+Captação
+</h3>
+
+<p>
+O ar entra pela estrutura externa do aparelho.
+</p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">
+ETAPA 02
+</div>
+
+<div class="step-icon">
+🧰
+</div>
+
+<h3>
+Filtragem
+</h3>
+
+<p>
+O ar passa por diferentes camadas de filtragem.
+</p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">
+ETAPA 03
+</div>
+
+<div class="step-icon">
+🛡️
+</div>
+
+<h3>
+Tratamento
+</h3>
+
+<p>
+O conceito inclui uma etapa adicional de tratamento.
+</p>
+
+</div>
+
+<div class="step">
+
+<div class="step-number">
+ETAPA 04
+</div>
+
+<div class="step-icon">
+🌬️
+</div>
+
+<h3>
+Saída
+</h3>
+
+<p>
+O ar tratado retorna para o ambiente.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="tecnologia">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Tecnologia
+</h2>
+
+<p>
+Conheça os principais componentes do conceito.
+</p>
+
+</div>
+
+<div class="tech">
+
+<ul class="tech-list">
+
+<li>
+<span>●</span>
+<strong>Pré-filtro</strong>
+— primeira barreira para partículas maiores.
+</li>
+
+<li>
+<span>●</span>
+<strong>Filtro HEPA</strong>
+— filtragem de partículas finas.
+</li>
+
+<li>
+<span>●</span>
+<strong>Carvão ativado</strong>
+— auxilia na redução de odores.
+</li>
+
+<li>
+<span>●</span>
+<strong>UV-C</strong>
+— etapa adicional prevista no conceito.
+</li>
+
+<li>
+<span>●</span>
+<strong>Sensor</strong>
+— acompanha informações sobre o ambiente.
+</li>
+
+<li>
+<span>●</span>
+<strong>Modo automático</strong>
+— proposta de funcionamento inteligente.
+</li>
+
+</ul>
+
+<div class="diagram">
+
+<div class="product">
+
+<div class="product-top"></div>
+
+<div class="product-light"></div>
+
+<div class="product-filter"></div>
+
+<div class="product-name">
+TSUKI
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="paises">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+🌎 Países do mundo
+</h2>
+
+<p>
+Pesquise um país e veja sua bandeira.
+</p>
+
+</div>
+
+<div class="search-box">
+
+<input
+id="countrySearch"
+type="text"
+placeholder="Digite o nome de um país..."
+oninput="filterCountries()"
+>
+
+<button onclick="filterCountries()">
+Pesquisar
+</button>
+
+</div>
+
+<div class="countries" id="countries"></div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+📚 Checklist
+</h2>
+
+<p>
+Uma pequena ferramenta interativa do projeto.
+</p>
+
+</div>
+
+<div class="check-container">
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+ Ambiente organizado
+</label>
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+ Ventilação adequada
+</label>
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+ Filtros verificados
+</label>
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+ Aparelho bem posicionado
+</label>
+
+<div class="progress">
+
+<div class="progress-bar" id="progressBar"></div>
+
+</div>
+
+<div class="percent" id="percent">
+0% concluído
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="faq">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Perguntas frequentes
+</h2>
+
+</div>
+
+<div class="faq">
+
+<details>
+
+<summary>
+O que é o Tsuki PureAir?
+</summary>
+
+<p>
+É um conceito de purificador de ar inteligente criado para
+o projeto Brawl Tsuki.
+</p>
+
+</details>
+
+<details>
+
+<summary>
+O produto é real?
+</summary>
+
+<p>
+A página apresenta um conceito visual e educativo de produto.
+</p>
+
+</details>
+
+<details>
+
+<summary>
+Quais filtros aparecem no conceito?
+</summary>
+
+<p>
+O projeto apresenta pré-filtro, HEPA e carvão ativado.
+</p>
+
+</details>
+
+<details>
+
+<summary>
+Para que serve o sensor?
+</summary>
+
+<p>
+A proposta é acompanhar informações sobre a qualidade do ar.
+</p>
+
+</details>
+
+<details>
+
+<summary>
+O produto precisa de manutenção?
+</summary>
+
+<p>
+Em um aparelho real, a manutenção deve seguir as instruções
+do fabricante.
+</p>
+
+</details>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container final">
+
+<di
