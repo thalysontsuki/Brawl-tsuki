@@ -2,1170 +2,823 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07111f">
-<meta name="description" content="Tsuki PureAir - projeto conceitual de tecnologia para monitoramento e filtragem do ar.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06101d">
 <title>Tsuki PureAir | Brawl Tsuki</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#06101d;
-    color:#fff;
-    line-height:1.7;
-    overflow-x:hidden;
+font-family:Arial,Helvetica,sans-serif;
+background:#06101d;
+color:#fff;
+line-height:1.7;
 }
 
 a{
-    text-decoration:none;
-    color:inherit;
-}
-
-button,
-input{
-    font-family:inherit;
-}
-
-button{
-    cursor:pointer;
+text-decoration:none;
+color:inherit;
 }
 
 .container{
-    width:92%;
-    max-width:1200px;
-    margin:auto;
+width:92%;
+max-width:1200px;
+margin:auto;
 }
-
-/* =========================================================
-   VARIÁVEIS
-========================================================= */
-
-:root{
-    --bg:#06101d;
-    --bg2:#091827;
-    --card:#0d1d30;
-    --card2:#11263b;
-    --line:#203a52;
-    --primary:#58e2bc;
-    --primary-dark:#2cb995;
-    --blue:#5aa7ff;
-    --text:#ffffff;
-    --muted:#a9bacb;
-    --success:#63e6be;
-}
-
-/* =========================================================
-   FUNDO
-========================================================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    left:-250px;
-    top:300px;
-    border-radius:50%;
-    background:rgba(88,226,188,.04);
-    filter:blur(80px);
-    pointer-events:none;
-    z-index:-1;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    right:-250px;
-    top:900px;
-    border-radius:50%;
-    background:rgba(90,167,255,.04);
-    filter:blur(80px);
-    pointer-events:none;
-    z-index:-1;
-}
-
-/* =========================================================
-   HEADER
-========================================================= */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:999;
-    background:rgba(6,16,29,.92);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(6,16,29,.96);
+backdrop-filter:blur(12px);
+border-bottom:1px solid #20384d;
 }
 
 .header{
-    min-height:74px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
 }
 
 .logo{
-    font-size:23px;
-    font-weight:900;
-    letter-spacing:1px;
-    white-space:nowrap;
+font-size:23px;
+font-weight:900;
+letter-spacing:1px;
 }
 
 .logo span{
-    color:var(--primary);
+color:#58e2bc;
 }
 
 nav{
-    display:flex;
-    align-items:center;
-    gap:5px;
-    flex-wrap:wrap;
+display:flex;
+gap:6px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 nav a{
-    color:#b8c7d6;
-    padding:9px 12px;
-    border-radius:10px;
-    font-size:14px;
-    transition:.2s;
+padding:8px 11px;
+border-radius:10px;
+font-size:13px;
+color:#b7c6d5;
 }
 
 nav a:hover{
-    background:#102439;
-    color:var(--primary);
+background:#10263a;
+color:#58e2bc;
 }
 
-.country-link{
-    background:var(--primary);
-    color:#041a14!important;
-    font-weight:bold;
+.country{
+background:#58e2bc;
+color:#041712!important;
+font-weight:bold;
 }
-
-/* =========================================================
-   HERO
-========================================================= */
 
 .hero{
-    min-height:760px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-    background:
-        radial-gradient(circle at 85% 25%,rgba(88,226,188,.15),transparent 28%),
-        radial-gradient(circle at 15% 80%,rgba(90,167,255,.09),transparent 30%),
-        linear-gradient(135deg,#06101d,#0a1c2d);
+padding:110px 0;
+min-height:700px;
+display:flex;
+align-items:center;
+background:
+radial-gradient(circle at 80% 20%,rgba(88,226,188,.14),transparent 30%),
+linear-gradient(135deg,#06101d,#0a1c2d);
 }
 
 .hero-grid{
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    align-items:center;
-    gap:60px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
 }
 
-.tag{
-    display:inline-block;
-    padding:7px 13px;
-    border-radius:30px;
-    border:1px solid rgba(88,226,188,.35);
-    background:rgba(88,226,188,.07);
-    color:var(--primary);
-    font-size:12px;
-    font-weight:bold;
-    margin-bottom:20px;
+.badge{
+display:inline-block;
+padding:7px 14px;
+border:1px solid #245044;
+border-radius:30px;
+color:#58e2bc;
+background:#0b2526;
+font-size:12px;
+font-weight:bold;
+margin-bottom:20px;
 }
 
-.hero h1{
-    font-size:clamp(45px,7vw,78px);
-    line-height:1;
-    letter-spacing:-3px;
-    margin-bottom:25px;
+h1{
+font-size:clamp(45px,7vw,78px);
+line-height:1;
+letter-spacing:-3px;
+margin-bottom:25px;
 }
 
-.hero h1 span{
-    color:var(--primary);
+h1 span{
+color:#58e2bc;
 }
 
-.hero-description{
-    color:var(--muted);
-    font-size:18px;
-    max-width:680px;
-    margin-bottom:30px;
+.hero p{
+font-size:18px;
+color:#aebdca;
+max-width:650px;
+margin-bottom:28px;
 }
 
 .buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
 }
 
 .btn{
-    border:0;
-    border-radius:12px;
-    padding:14px 20px;
-    font-weight:bold;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    transition:.2s;
+display:inline-block;
+padding:13px 20px;
+border-radius:12px;
+font-weight:bold;
+transition:.2s;
 }
 
-.btn-primary{
-    background:var(--primary);
-    color:#041812;
+.primary{
+background:#58e2bc;
+color:#041712;
 }
 
-.btn-primary:hover{
-    transform:translateY(-3px);
+.secondary{
+background:#0d2032;
+border:1px solid #28435a;
 }
 
-.btn-secondary{
-    background:#0d1d30;
-    border:1px solid var(--line);
-    color:white;
+.btn:hover{
+transform:translateY(-3px);
 }
-
-.btn-secondary:hover{
-    border-color:var(--primary);
-}
-
-/* =========================================================
-   APARELHO
-========================================================= */
 
 .device-area{
-    min-height:480px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:450px;
+position:relative;
 }
 
 .device{
-    width:270px;
-    height:390px;
-    border-radius:48px;
-    background:linear-gradient(145deg,#f4ffff,#aac9cc);
-    position:relative;
-    box-shadow:
-        0 35px 90px rgba(0,0,0,.5),
-        inset 0 0 30px rgba(255,255,255,.7);
-    animation:float 4s ease-in-out infinite;
+width:260px;
+height:380px;
+border-radius:45px;
+background:linear-gradient(145deg,#f4ffff,#9dbabd);
+box-shadow:0 30px 80px rgba(0,0,0,.55);
+position:relative;
+animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-14px);
-    }
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
 }
 
 .device-top{
-    position:absolute;
-    top:18px;
-    left:28px;
-    right:28px;
-    height:43px;
-    border-radius:25px;
-    background:#d8eeee;
+position:absolute;
+top:20px;
+left:30px;
+right:30px;
+height:40px;
+border-radius:30px;
+background:#d7ebeb;
 }
 
-.device-screen{
-    position:absolute;
-    top:88px;
-    left:38px;
-    right:38px;
-    height:100px;
-    border-radius:18px;
-    background:#061b28;
-    border:3px solid #8cb9ba;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
+.screen{
+position:absolute;
+top:90px;
+left:35px;
+right:35px;
+height:100px;
+border-radius:18px;
+background:#061b27;
+border:3px solid #8eb9ba;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
 }
 
-.device-screen strong{
-    font-size:30px;
-    color:var(--primary);
+.screen strong{
+font-size:30px;
+color:#58e2bc;
 }
 
-.device-screen small{
-    color:#c3d4df;
+.screen small{
+color:#bdd0d7;
 }
 
-.device-grille{
-    position:absolute;
-    left:42px;
-    right:42px;
-    bottom:48px;
-    height:90px;
-    border-radius:17px;
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            #819a9d 0px,
-            #819a9d 5px,
-            transparent 5px,
-            transparent 13px
-        );
+.grille{
+position:absolute;
+left:38px;
+right:38px;
+bottom:45px;
+height:90px;
+border-radius:15px;
+background:repeating-linear-gradient(
+to bottom,
+#81999b 0,
+#81999b 5px,
+transparent 5px,
+transparent 13px
+);
 }
 
-.air-wave{
-    position:absolute;
-    border:1px solid rgba(88,226,188,.4);
-    border-radius:50%;
-    width:430px;
-    height:430px;
-    animation:pulse 3s infinite;
+.wave{
+position:absolute;
+width:420px;
+height:420px;
+border:1px solid rgba(88,226,188,.3);
+border-radius:50%;
+animation:pulse 3s infinite;
 }
 
-.air-wave.two{
-    width:520px;
-    height:520px;
-    animation-delay:1s;
+.wave.two{
+width:520px;
+height:520px;
+animation-delay:1s;
 }
 
 @keyframes pulse{
-    0%{
-        opacity:0;
-        transform:scale(.7);
-    }
-    50%{
-        opacity:1;
-    }
-    100%{
-        opacity:0;
-        transform:scale(1.1);
-    }
+0%{opacity:0;transform:scale(.7)}
+50%{opacity:1}
+100%{opacity:0;transform:scale(1.1)}
 }
 
-/* =========================================================
-   ESTATÍSTICAS
-========================================================= */
-
 .stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-    margin-top:-70px;
-    position:relative;
-    z-index:2;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-top:-55px;
+position:relative;
 }
 
 .stat{
-    background:#0b1b2c;
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:23px;
+background:#0b1b2c;
+border:1px solid #20384d;
+border-radius:18px;
+padding:22px;
 }
 
 .stat small{
-    color:#8fa5b9;
+color:#8ea3b5;
 }
 
 .stat strong{
-    display:block;
-    font-size:27px;
-    color:var(--primary);
-    margin-top:5px;
+display:block;
+font-size:27px;
+color:#58e2bc;
 }
-
-/* =========================================================
-   SEÇÕES
-========================================================= */
 
 section{
-    padding:100px 0;
+padding:100px 0;
 }
 
-.section-label{
-    color:var(--primary);
-    text-transform:uppercase;
-    letter-spacing:2px;
-    font-size:12px;
-    font-weight:bold;
-    margin-bottom:10px;
+.dark{
+background:#081625;
 }
 
-.section-title{
-    font-size:42px;
-    line-height:1.15;
-    margin-bottom:16px;
+.label{
+color:#58e2bc;
+font-size:12px;
+font-weight:bold;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-bottom:10px;
 }
 
-.section-text{
-    color:var(--muted);
-    max-width:850px;
-    margin-bottom:40px;
+.title{
+font-size:42px;
+line-height:1.15;
+margin-bottom:18px;
 }
 
-/* =========================================================
-   SOBRE
-========================================================= */
-
-.about{
-    background:#081625;
+.text{
+color:#a9bac9;
+max-width:850px;
+margin-bottom:40px;
 }
 
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
-.about-card{
-    background:#0c1c2e;
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:30px;
+.card{
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:20px;
+padding:28px;
+transition:.25s;
 }
 
-.about-card h3{
-    font-size:25px;
-    margin-bottom:14px;
+.card:hover{
+transform:translateY(-5px);
+border-color:#3b806f;
 }
 
-.about-card p{
-    color:var(--muted);
-    margin-bottom:15px;
+.icon{
+font-size:32px;
+margin-bottom:10px;
 }
 
-.about-list{
-    list-style:none;
+.card h3{
+font-size:21px;
+margin-bottom:9px;
 }
 
-.about-list li{
-    padding:10px 0;
-    border-bottom:1px solid rgba(255,255,255,.05);
-    color:#d7e2ec;
+.card p{
+color:#a9bac9;
 }
 
-.about-list li:last-child{
-    border-bottom:0;
+.big-text{
+background:#0c1c2d;
+border:1px solid #20384d;
+border-radius:22px;
+padding:32px;
+margin-top:25px;
 }
 
-.about-list b{
-    color:var(--primary);
-    margin-right:7px;
+.big-text p{
+color:#a9bac9;
+margin-bottom:17px;
 }
 
-/* =========================================================
-   VISÃO GERAL
-========================================================= */
-
-.overview-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.info-card{
-    background:linear-gradient(145deg,#0d1e31,#0a1828);
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:28px;
-    transition:.25s;
-}
-
-.info-card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(88,226,188,.55);
-}
-
-.card-icon{
-    width:55px;
-    height:55px;
-    border-radius:15px;
-    background:#102b3b;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:27px;
-    margin-bottom:17px;
-}
-
-.info-card h3{
-    font-size:21px;
-    margin-bottom:9px;
-}
-
-.info-card p{
-    color:var(--muted);
-}
-
-/* =========================================================
-   FUNCIONAMENTO
-========================================================= */
-
-.function{
-    background:#091827;
+.big-text p:last-child{
+margin-bottom:0;
 }
 
 .steps{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
 }
 
 .step{
-    background:#0d1d30;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:26px;
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:20px;
+padding:25px;
 }
 
-.step-number{
-    color:var(--primary);
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:13px;
+.number{
+color:#58e2bc;
+font-size:13px;
+font-weight:bold;
+margin-bottom:10px;
 }
 
 .step h3{
-    font-size:21px;
-    margin-bottom:10px;
+margin-bottom:9px;
 }
 
 .step p{
-    color:var(--muted);
-}
-
-/* =========================================================
-   FILTRAGEM
-========================================================= */
-
-.filter-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.filter-card{
-    background:#0c1c2e;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:28px;
-    position:relative;
-    overflow:hidden;
-}
-
-.filter-card::after{
-    content:"";
-    position:absolute;
-    right:-30px;
-    bottom:-30px;
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    background:rgba(88,226,188,.05);
-}
-
-.filter-number{
-    font-size:42px;
-    color:rgba(88,226,188,.25);
-    font-weight:900;
-}
-
-.filter-card h3{
-    margin-bottom:8px;
-}
-
-.filter-card p{
-    color:var(--muted);
-}
-
-/* =========================================================
-   TECNOLOGIA
-========================================================= */
-
-.tech{
-    background:
-        radial-gradient(circle at 80% 20%,rgba(90,167,255,.08),transparent 30%),
-        #071421;
+color:#a9bac9;
 }
 
 .tech-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
 }
 
-.tech-item{
-    padding:28px;
-    border:1px solid var(--line);
-    border-radius:20px;
-    background:#0c1d30;
+.tech{
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:20px;
+padding:28px;
 }
 
-.tech-item h3{
-    margin-bottom:9px;
+.tech h3{
+margin-bottom:8px;
 }
 
-.tech-item p{
-    color:var(--muted);
+.tech p{
+color:#a9bac9;
 }
 
-/* =========================================================
-   MODO AUTOMÁTICO
-========================================================= */
-
-.auto-box{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    align-items:stretch;
+.feature{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
 }
 
-.auto-panel{
-    background:#0c1c2e;
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:30px;
+.feature-box{
+background:#0c1d30;
+border:1px solid #20384d;
+border-radius:22px;
+padding:30px;
 }
 
-.auto-panel h3{
-    font-size:27px;
-    margin-bottom:12px;
+.feature-box h3{
+font-size:25px;
+margin-bottom:12px;
 }
 
-.auto-panel p{
-    color:var(--muted);
-    margin-bottom:20px;
+.feature-box p{
+color:#a9bac9;
+margin-bottom:15px;
 }
 
-.mode{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:15px;
-    background:#091827;
-    border:1px solid var(--line);
-    border-radius:14px;
-    margin:10px 0;
+.list{
+list-style:none;
 }
 
-.mode span:first-child{
-    color:#d8e4ed;
+.list li{
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.mode span:last-child{
-    color:var(--primary);
-    font-weight:bold;
+.list li:last-child{
+border-bottom:0;
 }
 
-/* =========================================================
-   PAINEL
-========================================================= */
+.list b{
+color:#58e2bc;
+}
+
+.filter{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.filter-card{
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:20px;
+padding:28px;
+}
+
+.filter-card strong{
+font-size:38px;
+color:#58e2bc;
+}
+
+.filter-card h3{
+margin:5px 0 8px;
+}
+
+.filter-card p{
+color:#a9bac9;
+}
+
+.timeline{
+border-left:2px solid #58e2bc;
+padding-left:25px;
+}
+
+.timeline-item{
+margin-bottom:25px;
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:18px;
+padding:24px;
+}
+
+.timeline-item h3{
+margin-bottom:8px;
+}
+
+.timeline-item p{
+color:#a9bac9;
+}
 
 .dashboard{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
 }
 
 .metric{
-    padding:25px;
-    background:#0c1c2e;
-    border:1px solid var(--line);
-    border-radius:18px;
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:18px;
+padding:24px;
 }
 
-.metric-label{
-    color:#8ea4b8;
-    font-size:13px;
+.metric small{
+color:#8ea3b5;
 }
 
-.metric-value{
-    color:var(--primary);
-    font-size:31px;
-    font-weight:900;
-    margin:6px 0;
+.metric strong{
+display:block;
+font-size:30px;
+color:#58e2bc;
+margin:5px 0;
 }
 
-.metric-status{
-    color:#aebdca;
-    font-size:13px;
+.metric span{
+color:#a9bac9;
+font-size:13px;
 }
-
-/* =========================================================
-   APLICAÇÕES
-========================================================= */
-
-.application-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.application{
-    padding:28px;
-    border-radius:20px;
-    background:#0d1d30;
-    border:1px solid var(--line);
-}
-
-.application h3{
-    font-size:22px;
-    margin-bottom:9px;
-}
-
-.application p{
-    color:var(--muted);
-}
-
-/* =========================================================
-   SUSTENTABILIDADE
-========================================================= */
 
 .eco{
-    background:#071a1b;
+background:#071a1b;
 }
 
 .eco-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
 .eco-card{
-    padding:28px;
-    background:#0b2020;
-    border:1px solid #1d4542;
-    border-radius:20px;
-}
-
-.eco-card h3{
-    margin-bottom:9px;
+background:#0b2020;
+border:1px solid #24504b;
+border-radius:20px;
+padding:28px;
 }
 
 .eco-card p{
-    color:#a9c3c0;
+color:#a9c3c0;
 }
 
-/* =========================================================
-   SEGURANÇA
-========================================================= */
-
-.safety-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+.app-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
 }
 
-.safety-card{
-    padding:26px;
-    border:1px solid var(--line);
-    border-radius:20px;
-    background:#0d1d30;
+.app{
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:20px;
+padding:28px;
 }
 
-.safety-card h3{
-    margin-bottom:9px;
+.app p{
+color:#a9bac9;
 }
-
-.safety-card p{
-    color:var(--muted);
-}
-
-/* =========================================================
-   FUTURO
-========================================================= */
 
 .future{
-    background:#091726;
+background:#091827;
 }
 
-.future-list{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
+.future-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
-.future-item{
-    padding:25px;
-    border-left:3px solid var(--primary);
-    background:#0d1d30;
-    border-radius:0 15px 15px 0;
+.future-card{
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:20px;
+padding:27px;
 }
 
-.future-item h3{
-    margin-bottom:7px;
+.future-card p{
+color:#a9bac9;
 }
-
-.future-item p{
-    color:var(--muted);
-}
-
-/* =========================================================
-   CHECKLIST
-========================================================= */
-
-.check-section{
-    background:#071421;
-}
-
-.check-container{
-    max-width:850px;
-    margin:auto;
-}
-
-.check-box{
-    background:#0d1d30;
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:30px;
-}
-
-.check-item{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:15px 0;
-    border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.check-item:last-child{
-    border-bottom:0;
-}
-
-.check-item input{
-    width:19px;
-    height:19px;
-    accent-color:#58e2bc;
-}
-
-.progress{
-    height:10px;
-    background:#071421;
-    border-radius:20px;
-    overflow:hidden;
-    margin-top:22px;
-}
-
-.progress-bar{
-    width:0%;
-    height:100%;
-    background:var(--primary);
-    transition:.3s;
-}
-
-.progress-text{
-    color:var(--muted);
-    margin-top:10px;
-    font-size:14px;
-}
-
-/* =========================================================
-   FAQ
-========================================================= */
 
 .faq{
-    max-width:900px;
-    margin:auto;
+max-width:900px;
+margin:auto;
 }
 
 details{
-    background:#0d1d30;
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:19px 21px;
-    margin:12px 0;
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:15px;
+padding:18px 20px;
+margin:12px 0;
 }
 
 summary{
-    cursor:pointer;
-    font-weight:bold;
+cursor:pointer;
+font-weight:bold;
 }
 
 details p{
-    color:var(--muted);
-    margin-top:12px;
+color:#a9bac9;
+margin-top:10px;
 }
 
-/* =========================================================
-   PROJETO
-========================================================= */
-
-.project{
-    text-align:center;
-    background:
-        radial-gradient(circle at 50% 0,rgba(88,226,188,.1),transparent 35%),
-        #071421;
+.check{
+max-width:850px;
+margin:auto;
 }
 
-.project p{
-    max-width:780px;
-    margin:0 auto 14px;
-    color:var(--muted);
+.check-box{
+background:#0d1d30;
+border:1px solid #20384d;
+border-radius:22px;
+padding:30px;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.check-item{
+display:flex;
+gap:12px;
+padding:15px 0;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.check-item input{
+width:19px;
+height:19px;
+accent-color:#58e2bc;
+}
+
+.progress{
+height:10px;
+background:#06101d;
+border-radius:20px;
+margin-top:22px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+width:0;
+background:#58e2bc;
+transition:.3s;
+}
+
+.progress-text{
+margin-top:10px;
+color:#a9bac9;
+}
+
+.final{
+text-align:center;
+background:
+radial-gradient(circle at 50% 0,rgba(88,226,188,.12),transparent 35%),
+#071421;
+}
+
+.final p{
+max-width:800px;
+margin:0 auto 20px;
+color:#a9bac9;
+}
 
 footer{
-    padding:45px 0;
-    background:#040b14;
-    border-top:1px solid var(--line);
+background:#040b14;
+border-top:1px solid #20384d;
+padding:45px 0;
 }
 
-.footer-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+.footer{
+display:flex;
+justify-content:space-between;
+gap:25px;
+flex-wrap:wrap;
 }
 
-.footer-text{
-    color:#879bad;
-    margin-top:8px;
+.footer p{
+color:#8193a4;
 }
-
-.footer-links{
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.footer-links a{
-    color:#91a6b8;
-}
-
-.footer-links a:hover{
-    color:var(--primary);
-}
-
-/* =========================================================
-   BOTÃO TOPO
-========================================================= */
 
 .top{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border:1px solid var(--line);
-    background:#0d1d30;
-    color:var(--primary);
-    z-index:100;
+position:fixed;
+right:18px;
+bottom:18px;
+width:45px;
+height:45px;
+border-radius:50%;
+border:1px solid #28445b;
+background:#0d1d30;
+color:#58e2bc;
+font-size:20px;
 }
-
-/* =========================================================
-   RESPONSIVO
-========================================================= */
 
 @media(max-width:1000px){
 
-    .hero-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
+.hero-grid{
+grid-template-columns:1fr;
+text-align:center;
+}
 
-    .hero-description{
-        margin-left:auto;
-        margin-right:auto;
-    }
+.hero p{
+margin-left:auto;
+margin-right:auto;
+}
 
-    .buttons{
-        justify-content:center;
-    }
+.buttons{
+justify-content:center;
+}
 
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
+.grid,
+.eco-grid,
+.future-grid{
+grid-template-columns:1fr 1fr;
+}
 
-    .steps{
-        grid-template-columns:1fr 1fr;
-    }
+.steps{
+grid-template-columns:1fr 1fr;
+}
 
-    .dashboard{
-        grid-template-columns:1fr 1fr;
-    }
+.stats,
+.dashboard{
+grid-template-columns:1fr 1fr;
+}
 
-    .about-grid{
-        grid-template-columns:1fr;
-    }
-
-    .overview-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .filter-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .eco-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .safety-grid{
-        grid-template-columns:1fr 1fr;
-    }
 }
 
 @media(max-width:700px){
 
-    header{
-        position:relative;
-    }
-
-    .header{
-        padding:15px 0;
-        flex-direction:column;
-    }
-
-    nav{
-        justify-content:center;
-    }
-
-    nav a{
-        font-size:12px;
-        padding:7px 8px;
-    }
-
-    section{
-        padding:70px 0;
-    }
-
-    .hero{
-        min-height:auto;
-        padding:75px 0 110px;
-    }
-
-    .hero h1{
-        font-size:47px;
-    }
-
-    .hero-description{
-        font-size:16px;
-    }
-
-    .device{
-        width:210px;
-        height:310px;
-    }
-
-    .device-screen{
-        top:75px;
-        left:30px;
-        right:30px;
-        height:80px;
-    }
-
-    .device-grille{
-        left:33px;
-        right:33px;
-        bottom:35px;
-    }
-
-    .air-wave{
-        width:320px;
-        height:320px;
-    }
-
-    .air-wave.two{
-        width:390px;
-        height:390px;
-    }
-
-    .stats{
-        grid-template-columns:1fr 1fr;
-        margin-top:-45px;
-    }
-
-    .stat{
-        padding:17px;
-    }
-
-    .section-title{
-        font-size:32px;
-    }
-
-    .overview-grid{
-        grid-template-columns:1fr;
-    }
-
-    .steps{
-        grid-template-columns:1fr;
-    }
-
-    .filter-grid{
-        grid-template-columns:1fr;
-    }
-
-    .tech-grid{
-        grid-template-columns:1fr;
-    }
-
-    .auto-box{
-        grid-template-columns:1fr;
-    }
-
-    .dashboard{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .application-grid{
-        grid-template-columns:1fr;
-    }
-
-    .eco-grid{
-        grid-template-columns:1fr;
-    }
-
-    .safety-grid{
-        grid-template-columns:1fr;
-    }
-
-    .future-list{
-        grid-template-columns:1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-links{
-        justify-content:flex-start;
-    }
+header{
+position:relative;
 }
 
+.header{
+flex-direction:column;
+padding:15px 0;
+}
+
+nav a{
+font-size:11px;
+padding:7px;
+}
+
+.hero{
+padding:75px 0 100px;
+}
+
+h1{
+font-size:48px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.device{
+width:210px;
+height:310px;
+}
+
+.screen{
+top:70px;
+height:80px;
+left:28px;
+right:28px;
+}
+
+.grille{
+left:31px;
+right:31px;
+bottom:35px;
+}
+
+.wave{
+width:320px;
+height:320px;
+}
+
+.wave.two{
+width:390px;
+height:390px;
+}
+
+section{
+padding:70px 0;
+}
+
+.title{
+font-size:32px;
+}
+
+.grid,
+.steps,
+.tech-grid,
+.feature,
+.filter,
+.app-grid,
+.eco-grid,
+.future-grid{
+grid-template-columns:1fr;
+}
+
+.stats,
+.dashboard{
+grid-template-columns:1fr 1fr;
+}
+
+.stat{
+padding:16px;
+}
+
+}
 </style>
 </head>
 
 <body>
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
-
 <header>
-
 <div class="container header">
 
 <a class="logo" href="#inicio">
@@ -1173,27 +826,571 @@ BRAWL <span>TSUKI</span>
 </a>
 
 <nav>
-
-<a href="#inicio">Início</a>
-
 <a href="#sobre">Sobre</a>
-
-<a href="#funciona">Funcionamento</a>
-
-<a href="#tecnologia">Tecnologia</a>
-
 <a href="#beneficios">Benefícios</a>
-
+<a href="#funciona">Funcionamento</a>
+<a href="#tecnologia">Tecnologia</a>
+<a href="#produto">Produto</a>
 <a href="#faq">FAQ</a>
-
-<a href="paises.html" class="country-link">
-🌎 Países
-</a>
-
+<a class="country" href="paises.html">🌎 Países</a>
 </nav>
 
 </div>
-
 </header>
 
-<!-- =============================
+<main>
+
+<section class="hero" id="inicio">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+PROJETO TECNOLÓGICO • BRAWL TSUKI
+</div>
+
+<h1>
+TSUKI
+<span>PUREAIR</span>
+</h1>
+
+<p>
+Respire vida. Inspire futuro. O Tsuki PureAir é um conceito
+de purificador de ar inteligente criado para unir tecnologia,
+design, monitoramento e sustentabilidade em uma única ideia.
+</p>
+
+<div class="buttons">
+
+<a class="btn primary" href="#produto">
+Conhecer o produto
+</a>
+
+<a class="btn secondary" href="#tecnologia">
+Explorar tecnologia
+</a>
+
+</div>
+
+</div>
+
+<div class="device-area">
+
+<div class="wave"></div>
+<div class="wave two"></div>
+
+<div class="device">
+
+<div class="device-top"></div>
+
+<div class="screen">
+<strong id="quality">98%</strong>
+<small>Qualidade do ar</small>
+</div>
+
+<div class="grille"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="container stats">
+
+<div class="stat">
+<small>Qualidade demonstrativa</small>
+<strong>98%</strong>
+</div>
+
+<div class="stat">
+<small>Modo</small>
+<strong>AUTO</strong>
+</div>
+
+<div class="stat">
+<small>Estado</small>
+<strong>ATIVO</strong>
+</div>
+
+<div class="stat">
+<small>Projeto</small>
+<strong>TSUKI</strong>
+</div>
+
+</div>
+
+<section id="sobre">
+
+<div class="container">
+
+<div class="label">
+SOBRE O PRODUTO
+</div>
+
+<h2 class="title">
+Uma nova ideia para cuidar do ambiente
+</h2>
+
+<p class="text">
+O Tsuki PureAir nasceu como uma proposta de produto
+tecnológico voltado ao monitoramento e à filtragem do ar.
+A ideia combina elementos de eletrônica, programação,
+design industrial e sustentabilidade.
+</p>
+
+<div class="big-text">
+
+<p>
+Imagine entrar em um ambiente e encontrar um aparelho que
+não apenas movimenta o ar, mas também apresenta informações
+sobre as condições daquele espaço. Essa é uma das principais
+ideias por trás do PureAir.
+</p>
+
+<p>
+O equipamento foi imaginado para possuir sensores capazes
+de acompanhar determinadas características ambientais.
+Essas informações seriam enviadas para um sistema eletrônico,
+que poderia interpretar os dados e apresentar resultados
+de maneira simples.
+</p>
+
+<p>
+A proposta é transformar tecnologia complexa em uma
+experiência fácil de entender. Em vez de mostrar dezenas
+de números difíceis de interpretar, a interface poderia
+utilizar indicadores, ícones, gráficos e mensagens simples.
+</p>
+
+<p>
+O PureAir também foi pensado com uma estrutura compacta.
+Seu formato permite imaginar um equipamento moderno que
+poderia ser colocado em diferentes ambientes internos.
+</p>
+
+<p>
+Outro ponto importante do conceito é a automação. O usuário
+poderia escolher um modo automático e permitir que o sistema
+ajustasse o funcionamento conforme os dados disponíveis.
+</p>
+
+<p>
+Isso faria do PureAir mais do que um simples aparelho:
+seria uma plataforma tecnológica capaz de reunir sensores,
+processamento de informações, filtragem e interação.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="dark" id="beneficios">
+
+<div class="container">
+
+<div class="label">
+BENEFÍCIOS
+</div>
+
+<h2 class="title">
+O que o conceito pretende oferecer?
+</h2>
+
+<p class="text">
+O PureAir foi pensado para demonstrar várias possibilidades
+de um produto moderno voltado à qualidade do ambiente.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🍃</div>
+<h3>Filtragem</h3>
+<p>
+O conceito utiliza diferentes etapas de filtragem para
+representar como o ar poderia passar por um sistema
+interno antes de retornar ao ambiente.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📡</div>
+<h3>Monitoramento</h3>
+<p>
+Sensores poderiam acompanhar informações ambientais e
+enviar esses dados para o sistema eletrônico.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🤖</div>
+<h3>Automação</h3>
+<p>
+O modo automático poderia adaptar a intensidade do aparelho
+de acordo com parâmetros definidos.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📱</div>
+<h3>Conectividade</h3>
+<p>
+Uma futura versão poderia apresentar informações também
+por meio de um aplicativo.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🌱</div>
+<h3>Sustentabilidade</h3>
+<p>
+O projeto considera ideias relacionadas à eficiência,
+durabilidade e escolha responsável de materiais.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🏠</div>
+<h3>Praticidade</h3>
+<p>
+O design compacto foi pensado para combinar tecnologia
+com uma experiência simples para o usuário.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="funciona">
+
+<div class="container">
+
+<div class="label">
+COMO FUNCIONA
+</div>
+
+<h2 class="title">
+O caminho do ar dentro do PureAir
+</h2>
+
+<p class="text">
+A ideia do produto pode ser explicada em quatro etapas
+principais, formando um ciclo contínuo de circulação.
+</p>
+
+<div class="steps">
+
+<div class="step">
+<div class="number">ETAPA 01</div>
+<h3>💨 Captação</h3>
+<p>
+O ar do ambiente entra pelas aberturas externas do
+equipamento e é conduzido para o sistema interno.
+</p>
+</div>
+
+<div class="step">
+<div class="number">ETAPA 02</div>
+<h3>🧰 Filtragem</h3>
+<p>
+O fluxo passa pelas camadas de filtragem previstas
+no conceito do aparelho.
+</p>
+</div>
+
+<div class="step">
+<div class="number">ETAPA 03</div>
+<h3>📡 Monitoramento</h3>
+<p>
+Sensores poderiam acompanhar determinadas informações
+e alimentar o sistema eletrônico.
+</p>
+</div>
+
+<div class="step">
+<div class="number">ETAPA 04</div>
+<h3>🌬️ Saída</h3>
+<p>
+Depois das etapas internas, o ar retorna ao ambiente
+e o ciclo continua.
+</p>
+</div>
+
+</div>
+
+<div class="big-text">
+
+<p>
+O primeiro ponto do processo é a captação. Para funcionar,
+um equipamento de circulação de ar precisa permitir que o ar
+do ambiente chegue até seu sistema interno.
+</p>
+
+<p>
+Depois vem a filtragem. Essa parte representa o conjunto
+de materiais que poderia reter diferentes tipos de partículas.
+O conceito utiliza a ideia de várias camadas trabalhando
+em sequência.
+</p>
+
+<p>
+Durante o funcionamento, sensores poderiam acompanhar
+determinadas condições. O sistema eletrônico receberia
+essas informações e poderia utilizá-las para controlar
+o equipamento.
+</p>
+
+<p>
+Finalmente, o fluxo de ar seria direcionado novamente para
+o ambiente. O ciclo poderia continuar enquanto o aparelho
+estivesse ligado.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="dark">
+
+<div class="container">
+
+<div class="label">
+FILTRAGEM
+</div>
+
+<h2 class="title">
+Camadas pensadas para trabalhar juntas
+</h2>
+
+<p class="text">
+Cada etapa possui uma função diferente dentro do conceito.
+Em um aparelho real, o desempenho dependeria das
+especificações e dos componentes escolhidos.
+</p>
+
+<div class="filter">
+
+<div class="filter-card">
+<strong>01</strong>
+<h3>Pré-filtro</h3>
+<p>
+Primeira barreira pensada para lidar com partículas maiores
+antes das etapas seguintes.
+</p>
+</div>
+
+<div class="filter-card">
+<strong>02</strong>
+<h3>Filtro de partículas</h3>
+<p>
+Camada destinada, no conceito, à filtragem de partículas
+menores presentes no fluxo de ar.
+</p>
+</div>
+
+<div class="filter-card">
+<strong>03</strong>
+<h3>HEPA</h3>
+<p>
+O conceito apresenta um filtro HEPA como uma possível
+etapa de filtragem de partículas finas.
+</p>
+</div>
+
+<div class="filter-card">
+<strong>04</strong>
+<h3>Carvão ativado</h3>
+<p>
+O carvão ativado pode auxiliar na redução de determinados
+odores em sistemas apropriados.
+</p>
+</div>
+
+<div class="filter-card">
+<strong>05</strong>
+<h3>Tratamento adicional</h3>
+<p>
+O projeto pode receber outras tecnologias dependendo
+da versão que fosse desenvolvida.
+</p>
+</div>
+
+<div class="filter-card">
+<strong>06</strong>
+<h3>Saída</h3>
+<p>
+Depois das etapas internas, o fluxo é direcionado para
+fora do equipamento.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="tecnologia">
+
+<div class="container">
+
+<div class="label">
+TECNOLOGIA
+</div>
+
+<h2 class="title">
+O cérebro do Tsuki PureAir
+</h2>
+
+<p class="text">
+Para transformar o conceito em um produto inteligente,
+seria necessário combinar componentes eletrônicos,
+sensores e software.
+</p>
+
+<div class="tech-grid">
+
+<div class="tech">
+<h3>🌡️ Sensor de temperatura</h3>
+<p>
+Poderia acompanhar a temperatura do ambiente e enviar
+essa informação para o sistema.
+</p>
+</div>
+
+<div class="tech">
+<h3>💧 Sensor de umidade</h3>
+<p>
+Poderia registrar a umidade relativa e apresentar
+o resultado na interface.
+</p>
+</div>
+
+<div class="tech">
+<h3>🌫️ Sensor de partículas</h3>
+<p>
+Poderia estimar a presença de determinadas partículas
+em condições específicas.
+</p>
+</div>
+
+<div class="tech">
+<h3>🧠 Processador</h3>
+<p>
+Receberia informações dos sensores e executaria
+as instruções programadas.
+</p>
+</div>
+
+<div class="tech">
+<h3>⚡ Controle</h3>
+<p>
+Poderia controlar diferentes níveis de funcionamento
+do sistema de circulação.
+</p>
+</div>
+
+<div class="tech">
+<h3>📱 Aplicativo</h3>
+<p>
+Uma versão futura poderia enviar informações para
+um aplicativo compatível.
+</p>
+</div>
+
+<div class="tech">
+<h3>🔔 Alertas</h3>
+<p>
+O sistema poderia informar quando determinadas
+condições fossem identificadas.
+</p>
+</div>
+
+<div class="tech">
+<h3>📊 Histórico</h3>
+<p>
+Uma futura plataforma poderia guardar informações
+para comparação ao longo do tempo.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="produto" class="dark">
+
+<div class="container">
+
+<div class="label">
+DETALHES DO PRODUTO
+</div>
+
+<h2 class="title">
+Conheça o PureAir por dentro
+</h2>
+
+<p class="text">
+Abaixo estão algumas das características que formam
+a identidade do conceito.
+</p>
+
+<div class="feature">
+
+<div class="feature-box">
+
+<h3>
+🧊 Estrutura externa
+</h3>
+
+<p>
+O aparelho possui, no conceito visual, uma estrutura
+compacta com cantos arredondados e uma aparência moderna.
+</p>
+
+<p>
+A parte superior poderia abrigar indicadores ou controles,
+enquanto a região frontal teria uma tela para apresentar
+informações.
+</p>
+
+<p>
+A parte inferior seria destinada à circulação do ar,
+permitindo imaginar entradas e saídas de fluxo.
+</p>
+
+</div>
+
+<div class="feature-box">
+
+<h3>
+🖥️ Tela inteligente
+</h3>
+
+<p>
+A tela foi imaginada para apresentar informações
+importantes de maneira rápida.
+</p>
+
+<ul class="list">
+
+<li><b>✓</b> Qualidade demonstrativa</li>
+
+<li><b>✓</b> Estado do aparelho</li>
+
+<li><b>✓</b> Modo de funcionamento</li>
+
+<
